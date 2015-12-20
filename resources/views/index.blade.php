@@ -299,10 +299,13 @@
 <h2 class="text-center  wowload fadeInUp">Get in touch for any queries</h2>
   <div class="row wowload fadeInLeftBig">      
       <div class="col-sm-6 col-sm-offset-3 col-xs-12">      
-        <input type="text" placeholder="Name">
-        <input type="text" placeholder="Email">
-        <textarea rows="5" placeholder="Message"></textarea>
-        <button class="btn btn-primary"><i class="glyphicon glyphicon-send"></i> Send</button>
+        <span class="error contact-us-name-error"></span>
+        <input type="text" placeholder="Name" id="contactUsName" name="contact_us_name">
+        <span class="error contact-us-email-error"></span>
+        <input type="text" placeholder="Email" id="contactUsEmail" name="contact_us_email">
+        <span class="error contact-us-message-error"></span>
+        <textarea rows="5" placeholder="Message" id="contactUsMessage" name="contact_us_message"></textarea>
+        <button class="btn btn-primary" name="contact_us_btn" onClick="sendContactMsg()"><i class="glyphicon glyphicon-send"></i> Send</button>
       </div>
   </div>
 

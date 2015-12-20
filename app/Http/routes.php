@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::get('/home', 'IndexController@index');
+Route::get('/', 'IndexController@index');
+Route::get('/register', 'IndexController@register');

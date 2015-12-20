@@ -4,8 +4,32 @@ function register() {
 		$('.'+errorClasses[c]).hide();
 	}
 	validateName();
-	validateEmail();
+	validateEmail('email', 'email-error');
 	validatePassword();
+}
+
+function sendContactMsg() {
+  var errorClasses = ['contact-us-name-error', 'contact-us-email-error', 'contact-us-message-error'];
+  for (var c=0; c<errorClasses.length; c++) {
+    $('.'+errorClasses[c]).hide();
+  }
+
+  if(!$('#contactUsName').val().trim()) {
+    $('.contact-us-name-error').show();
+    $('.contact-us-name-error').html(error.nullName);
+  }
+
+  if(!$('#contactUsEmail').val().trim()) {
+    $('.contact-us-email-error').show();
+    $('.contact-us-email-error').html(error.nullEmail);
+  }
+
+  if(!$('#contactUsMessage').val().trim()) {
+    $('.contact-us-message-error').show();
+    $('.contact-us-message-error').html(error.nullMessage);
+  }
+
+  validateEmail('contactUsEmail', 'contact-us-email-error');
 }
 
 function validateName() {
@@ -16,16 +40,19 @@ function validateName() {
 	}
 }
 
-function validateEmail() {
-  var email = $('#email').val().trim();
+function validateEmail(fieldId, errorClass) {
+  var email = $('#'+fieldId).val().trim();
   var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;  
   if (!email) {
-  	$('.email-error').show();
-    $('.email-error').html(error.nullEmail);
+  	$('.'+errorClass).show();
+    $('.'+errorClass).html(error.nullEmail);
+    return false;
   } else if (!re.test(email)) {
-  	$('.email-error').show();
-  	$('.email-error').html(error.invalidEmail);
+  	$('.'+errorClass).show();
+  	$('.'+errorClass).html(error.invalidEmail);
+    return false;
   }
+  return true;
 }
 
 function validatePassword() {
