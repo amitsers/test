@@ -3,12 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Validator;
+use DB;
+use Input;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\CommonController;
+// use \Auth;
 
 class UserController extends Controller
 {
+    function __construct() {
+        $this->common = new CommonController();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,68 +28,80 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * This function is used to register user
+     * It will only works on AJAX call.
      */
-    public function create()
-    {
-        //
+    public function register(Request $request) {
+
+        if($request->ajax()) {
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'age' => 'required|numeric|min:15|max:35',
+            'password' => 'required|min:5',
+            'confirm_password' => 'required|same:password',
+        ]);
+
+        if (count($validator->errors()) > 0) {
+            return $validator->errors();
+        }
+        
+
+            $email = $request->input('email');
+
+            $user = DB::table('users')->where('email', $email)->count();
+            if ($user == 0) {
+                $id = DB::table('users')->insertGetId([
+                    'name' => $request->input('name'),
+                    'email' => $email,
+                    'age' => $request->input('age'),
+                    'password' => $request->input('password'),
+                    'created_at' => date("Y-m-d H:i:s")
+                ]);
+                $data = array(
+                    'userId' => $id
+                );
+                return $this->common->getResponse(false, 'RGSTRD', 'Registered Successfully', $data);
+
+            } else {
+                return $this->common->getResponse(true, 'EXST', 'Already Exists', '');
+            }
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function profile() {
+        return view('profile');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    public function doLogin() {
+        if($request->ajax()) {
+            $validator = Validator::make($request->all(), [
+                'login_email' => 'required|email',
+                'login_password' => 'required'
+            ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+            if (count($validator->errors()) > 0) {
+                return $validator->errors();
+            }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    //         $userdata = array(
+    //     'email'     => $request->input('login_email'),
+    //     'password'  => $request->input('login_password')
+    // );
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+
+    // if (Auth::attempt($userdata)) {
+    //     return 22222222222222222;
+    // }
+
+            // $login_email = $request->input('login_email');
+            // $user = DB::table('users')->where('email', $login_email)->count();
+            // if ($user > 0) {
+
+            // } else {
+            //     return $this->common->getResponse(true, 'NTEXST', 'Email not registered', '');
+            // }
+        }
     }
 }

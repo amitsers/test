@@ -263,11 +263,14 @@
         <span class="error name-error"></span>
         <input type="text" placeholder="Name" id="name" name="name">   
         <span class="error email-error"></span>     
-        <input type="text" placeholder="Email" id="email" name="email">        
+        <input type="text" placeholder="Email" id="email" name="email">
+        <span class="error age-error"></span>
+        <input type="text" placeholder="Age" id="age" name="age">
         <span class="error password-error"></span>
         <input type="password" placeholder="Password" id="password" name="password">
         <span class="error confirm-password-error"></span>
-        <input type="password" placeholder="Confirmation Password" id="confirm_password" name="confirm_password">
+        <input type="password" placeholder="Confirmation Password" id="confirmPassword" name="confirm_password">
+        <input type="hidden" name='_token' value="<?php echo csrf_token(); ?>" id='_token'>
         <button class="btn btn-primary" onClick="register();"><i class="glyphicon glyphicon-thumbs-up"></i> Register</button>
       </div>
   </div>
@@ -328,28 +331,26 @@
         <form>
           <div class="form-group">
             <label for="recipient-name" class="control-label">Email:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <br/><span class="error login-email-error"></span>
+            <input type="text" class="form-control" id="login-email" name="login_email">
           </div>
           <div class="form-group">
             <label for="message-text" class="control-label">Password:</label>
-            <input type="password" class="form-control" id="recipient-password">
+            <br/><span class="error login-password-error"></span>
+            <input type="password" class="form-control" id="login-password" name="login_password">
           </div>
+          <input type="hidden" name='_token' value="<?php echo csrf_token(); ?>" id='login_token'>
         </form>
       </div>
       <div class="modal-footer">
           <div class="row">
-  <div class="col-sm-6">
-    <button type="button" class="btn btn-primary">Login</button>
-  </div>
-  <div class="col-sm-6">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
-  </div>
-  </div>
-
-
-<!-- 
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Login</button> -->
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-primary" onClick="doLogin()">Login</button>
+            </div>
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
       </div>
     </div>
   </div>
