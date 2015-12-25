@@ -4,7 +4,7 @@ function doLogin() {
     $('.'+errorClasses[c]).hide();
   }
 
-  if (!password: $('#login-password').val()) {
+  if (!$('#login-password').val()) {
     $('.login-password-error').show();
     $('.login-password-error').html(res.password);
   }
@@ -118,23 +118,61 @@ function sendContactMsg() {
   for (var c=0; c<errorClasses.length; c++) {
     $('.'+errorClasses[c]).hide();
   }
+  var isError = false;
 
   if(!$('#contactUsName').val().trim()) {
     $('.contact-us-name-error').show();
     $('.contact-us-name-error').html(error.nullName);
+    isError = true;
   }
 
   if(!$('#contactUsEmail').val().trim()) {
     $('.contact-us-email-error').show();
     $('.contact-us-email-error').html(error.nullEmail);
+    isError = true;
   }
 
   if(!$('#contactUsMessage').val().trim()) {
     $('.contact-us-message-error').show();
     $('.contact-us-message-error').html(error.nullMessage);
+    isError = true;
   }
 
-  validateEmail('contactUsEmail', 'contact-us-email-error');
+  if (!validateEmail('contactUsEmail', 'contact-us-email-error')) {
+    isError = true;
+  }
+
+  isError = false;
+
+  if (!isError) {
+    $.ajax({
+      url: 'send-contact-msg',
+      type: 'POST',
+      data: {
+        name: $('#contactUsName').val(),
+        email: $('#contactUsEmail').val(),
+        message: $('#contactUsMessage').val(),
+        _token: $('#login_token').val(),
+      },
+      success: function(res) {
+        console.log(res);
+        if (res.hasOwnProperty('name') && res.name[0]) {
+          $('.contact-us-name-error').show();
+          $('.contact-us-name-error').html(res.name[0]);
+        }
+
+        if (res.hasOwnProperty('email') && res.email[0]) {
+          $('.contact-us-email-error').show();
+          $('.contact-us-email-error').html(res.email[0]);
+        }
+
+        if (res.hasOwnProperty('message') && res.message[0]) {
+          $('.contact-us-message-error').show();
+          $('.contact-us-message-error').html(res.message[0]);
+        }
+      }
+    });
+  }
 }
 
 function validateName() {

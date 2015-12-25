@@ -5,7 +5,7 @@ var error = {
 	password: 'Please enter your password',
 	passwordLength: 'Password should be more than 5 characters',
 	passwordMissMatch: 'Password not matching',
-	nullMessage: 'Please your queries',
+	nullMessage: 'Please enter your queries',
 	nullAge: 'Please enter your age',
 	ageNotNumber: 'Please enter a valid age',
 	ageLimit: 'Age should be 15 to 35 years',

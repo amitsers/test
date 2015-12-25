@@ -70,8 +70,29 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * This function is used to view user profile
+     **/
     public function profile() {
         return view('profile');
+    }
+
+    /**
+     * This function is used to send contact message
+     * It will only works on AJAX call.
+     */
+    public function sendContactMsg(Request $request) {
+        if($request->ajax()) {
+            $validator = Validator::make($request->all(), [
+                'name' => 'required',
+                'email' => 'required|email',
+                'message' => 'required'
+            ]);
+
+            if (count($validator->errors()) > 0) {
+                return $validator->errors();
+            }
+        }
     }
 
     public function doLogin() {
