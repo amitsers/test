@@ -9,5 +9,6 @@ var error = {
 	nullAge: 'Please enter your age',
 	ageNotNumber: 'Please enter a valid age',
 	ageLimit: 'Age should be 15 to 35 years',
-	alreadyRegistered: 'Email already registered'
+	alreadyRegistered: 'Email already registered',
+	loginFailed: 'Please check your email and password'
 }

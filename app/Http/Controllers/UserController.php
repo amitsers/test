@@ -45,6 +45,19 @@ class UserController extends Controller
 
         Auth::login($this->auth->create($request->all()));
 
+        if (Auth::check()) {
+
+            // $username = explode('@', $request->email)[0];
+            // if (!DB::table('users')->insert(['username' => $username])->where('id', Auth::user()->id)) {
+
+            //     if (!DB::table('users')->insert(['username' => $username.$request->age])->where('id', Auth::user()->id)) {
+            //         return DB::table('users')->getAll();
+            //     }
+
+            // }
+
+        }
+
         $data = array(
             'userId' => Auth::user()->id
         );
@@ -77,34 +90,40 @@ class UserController extends Controller
         }
     }
 
-    public function doLogin() {
+    public function doLogin(Request $request) {
+
         if($request->ajax()) {
             $validator = Validator::make($request->all(), [
-                'login_email' => 'required|email',
-                'login_password' => 'required'
+                'email' => 'required|email',
+                'password' => 'required'
             ]);
 
             if (count($validator->errors()) > 0) {
                 return $validator->errors();
             }
 
-    //         $userdata = array(
-    //     'email'     => $request->input('login_email'),
-    //     'password'  => $request->input('login_password')
-    // );
+            if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+                return $this->common->getResponse(false, 'LGDIN', 'Login success', array('id' => Auth::user()->id));
+            }
+            
 
+            return $this->common->getResponse(true, 'LDGFLD', 'Login failed', '');
 
-    // if (Auth::attempt($userdata)) {
-    //     return 22222222222222222;
-    // }
-
-            // $login_email = $request->input('login_email');
-            // $user = DB::table('users')->where('email', $login_email)->count();
-            // if ($user > 0) {
-
-            // } else {
-            //     return $this->common->getResponse(true, 'NTEXST', 'Email not registered', '');
-            // }
         }
+
+
+    }
+
+
+    /**
+     * Log the user out of the application.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }
 }

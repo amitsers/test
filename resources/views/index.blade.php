@@ -63,8 +63,8 @@
                  <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown">Amit<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="activity.html">Activity</a></li>
-                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="activity">Activity</a></li>
+                    <li><a href="profile">Profile</a></li>
                     <li class="divider"></li>
                     <li><a href="#">Logout</a></li>
                   </ul>

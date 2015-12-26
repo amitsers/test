@@ -52,15 +52,15 @@
             <!-- Nav Starts -->
             <div class="navbar-collapse  collapse">
               <ul class="nav navbar-nav navbar-right">
-                 <li><a href="index.html#home">Home</a></li>
-                 <li ><a href="index.html#rules">Rules</a></li>
+                 <li><a href="home#home">Home</a></li>
+                 <li ><a href="home#rules">Rules</a></li>
                  <li ><a href="#">Other Auditions</a></li>
                  <li >
                  <a href="index.html#contact">Contact</a></li>
                  <li class="dropdown">
                   <a class="dropdown-toggle active" data-toggle="dropdown">Amit<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="activity.html">Activity</a></li>
+                    <li><a href="activity">Activity</a></li>
                     <li class="active"><a href="#">Profile</a></li>
                     <li class="divider"></li>
                     <li><a href="#">Logout</a></li>

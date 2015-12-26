@@ -15,9 +15,10 @@
 //     return view('index');
 // });
 
-//Route::get('/home', 'IndexController@index');
+Route::get('/home', 'IndexController@index');
 Route::get('/', 'IndexController@index');
 Route::post('/register', 'UserController@register');
 Route::get('/profile', 'UserController@profile');
 Route::post('/login', 'UserController@doLogin');
 Route::post('/send-contact-msg', 'UserController@sendContactMsg');
+Route::get('/logout', 'UserController@logout');

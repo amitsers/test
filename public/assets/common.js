@@ -4,6 +4,39 @@ function doLogin() {
     $('.'+errorClasses[c]).hide();
   }
 
+  $.ajax({
+      url: 'login',
+      type: 'POST',
+      data: {
+        email: $('#login-email').val(),
+        password: $('#login-password').val(),
+        _token: $('#login_token').val(),
+      },
+      success: function(res) {
+        console.log(res);
+        if (res.hasOwnProperty('email') && res.email[0]) {
+          $('.login-email-error').show();
+          $('.login-email-error').html(res.email[0]);
+        }
+
+        if (res.hasOwnProperty('password') && res.password[0]) {
+          $('.login-password-error').show();
+          $('.login-password-error').html(res.password[0]);
+        }
+
+        if (res.hasOwnProperty('isError') && res.hasOwnProperty('code') && res['code'] === 'LDGFLD') {
+          $('.login-email-error').show();
+          $('.login-email-error').html(error.loginFailed);
+        }
+
+        if (res.hasOwnProperty('code') && res['code'] === 'LGDIN') {
+          window.location="profile";
+        }
+      }
+    });
+
+  return true;
+
   if (!$('#login-password').val()) {
     $('.login-password-error').show();
     $('.login-password-error').html(res.password);
@@ -16,12 +49,12 @@ function doLogin() {
       url: 'login',
       type: 'POST',
       data: {
-        login_email: $('#login-email').val(),
-        login_password: $('#login-password').val(),
+        email: $('#login-email').val(),
+        password: $('#login-password').val(),
         _token: $('#login_token').val(),
       },
       success: function(res) {
-        console.log(res);
+        console.log(res);        
       }
     });
   }
