@@ -9,12 +9,16 @@ use Input;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\CommonController;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\AuthController;
+
 // use \Auth;
 
 class UserController extends Controller
 {
     function __construct() {
         $this->common = new CommonController();
+        $this->auth = new AuthController();
     }
 
     /**
@@ -33,41 +37,19 @@ class UserController extends Controller
      */
     public function register(Request $request) {
 
-        if($request->ajax()) {
+        $validator = $this->auth->validator($request->all());
 
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'email' => 'required|email',
-            'age' => 'required|numeric|min:15|max:35',
-            'password' => 'required|min:5',
-            'confirm_password' => 'required|same:password',
-        ]);
-
-        if (count($validator->errors()) > 0) {
+        if ($validator->fails()) {
             return $validator->errors();
         }
-        
 
-            $email = $request->input('email');
+        Auth::login($this->auth->create($request->all()));
 
-            $user = DB::table('users')->where('email', $email)->count();
-            if ($user == 0) {
-                $id = DB::table('users')->insertGetId([
-                    'name' => $request->input('name'),
-                    'email' => $email,
-                    'age' => $request->input('age'),
-                    'password' => $request->input('password'),
-                    'created_at' => date("Y-m-d H:i:s")
-                ]);
-                $data = array(
-                    'userId' => $id
-                );
-                return $this->common->getResponse(false, 'RGSTRD', 'Registered Successfully', $data);
+        $data = array(
+            'userId' => Auth::user()->id
+        );
 
-            } else {
-                return $this->common->getResponse(true, 'EXST', 'Already Exists', '');
-            }
-        }
+        return $this->common->getResponse(false, 'RGSTRD', 'Registered Successfully', $data);
     }
 
     /**

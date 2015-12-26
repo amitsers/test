@@ -269,7 +269,7 @@
         <span class="error password-error"></span>
         <input type="password" placeholder="Password" id="password" name="password">
         <span class="error confirm-password-error"></span>
-        <input type="password" placeholder="Confirmation Password" id="confirmPassword" name="confirm_password">
+        <input type="password" placeholder="Confirmation Password" id="confirmPassword" name="password_confirmation">
         <input type="hidden" name='_token' value="<?php echo csrf_token(); ?>" id='_token'>
         <button class="btn btn-primary" onClick="register();"><i class="glyphicon glyphicon-thumbs-up"></i> Register</button>
       </div>

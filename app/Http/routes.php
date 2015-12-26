@@ -15,7 +15,7 @@
 //     return view('index');
 // });
 
-Route::get('/home', 'IndexController@index');
+//Route::get('/home', 'IndexController@index');
 Route::get('/', 'IndexController@index');
 Route::post('/register', 'UserController@register');
 Route::get('/profile', 'UserController@profile');

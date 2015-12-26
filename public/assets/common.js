@@ -46,10 +46,11 @@ function register() {
         name: $('#name').val(),
         age: $('#age').val(),
         password: $('#password').val(),
-        confirm_password: $('#confirmPassword').val(),
+        password_confirmation: $('#confirmPassword').val(),
         _token: $('#_token').val()
       },
       success: function(res) {
+        console.log(res);
         if (res.hasOwnProperty('name') && res.name[0]) {
           $('.name-error').show();
           $('.name-error').html(res.name[0]);
@@ -68,11 +69,6 @@ function register() {
         if (res.hasOwnProperty('password') && res.password[0]) {
           $('.password-error').show();
           $('.password-error').html(res.password[0]);
-        }
-
-        if (res.hasOwnProperty('confirm_password') && res.confirm_password[0]) {
-          $('.confirm-password-error').show();
-          $('.confirm-password-error').html(res.confirm_password[0]);
         }
 
         if(res.hasOwnProperty('code') && res.code === 'RGSTRD') {
