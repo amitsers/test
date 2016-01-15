@@ -22,3 +22,6 @@ Route::get('/profile', 'UserController@profile');
 Route::post('/login', 'UserController@doLogin');
 Route::post('/send-contact-msg', 'UserController@sendContactMsg');
 Route::get('/logout', 'UserController@logout');
+
+
+Route::get('/update-profile-field', 'UserController@updateProfileField');

@@ -126,4 +126,8 @@ class UserController extends Controller
 
         return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }
+
+    public function updateProfileField(Request $request) {
+        return $request->all();
+    }
 }
