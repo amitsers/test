@@ -116,7 +116,7 @@ class UserController extends Controller
 
 
     /**
-     * Log the user out of the application.
+     * Log the user out of the application..
      *
      * @return \Illuminate\Http\Response
      */
