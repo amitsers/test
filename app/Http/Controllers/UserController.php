@@ -11,6 +11,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\CommonController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\AuthController;
+use View;
+use Illuminate\Support\Facades\Redirect;
 
 // use \Auth;
 
@@ -19,6 +21,7 @@ class UserController extends Controller
     function __construct() {
         $this->common = new CommonController();
         $this->auth = new AuthController();
+        $this->user_destination = 'uploads/'.(Auth::user()->username);
     }
 
     /**
@@ -44,18 +47,11 @@ class UserController extends Controller
         }
 
         Auth::login($this->auth->create($request->all()));
-
+        //return Auth::user();
         if (Auth::check()) {
-
-            // $username = explode('@', $request->email)[0];
-            // if (!DB::table('users')->insert(['username' => $username])->where('id', Auth::user()->id)) {
-
-            //     if (!DB::table('users')->insert(['username' => $username.$request->age])->where('id', Auth::user()->id)) {
-            //         return DB::table('users')->getAll();
-            //     }
-
-            // }
-
+            $id = Auth::user()->id;
+            $username = explode('@', $request->email)[0];
+            DB::table('users')->where('id', $id)->update(['username' => $username.'.'.$id]);
         }
 
         $data = array(
@@ -70,6 +66,13 @@ class UserController extends Controller
      **/
     public function profile() {
         return view('profile');
+    }
+
+    /**
+     * This function is used to view user activity
+     **/
+    public function activity() {
+        return view('activity');
     }
 
     /**
@@ -112,6 +115,50 @@ class UserController extends Controller
         }
 
 
+    }
+
+    /**
+     * This function is used to upload songs to server
+     */
+    function uploadSong(Request $request) {
+        if (Input::file('track') === null) {
+             return Redirect::back()->withErrors(['File not found']);
+        }
+        $file = Input::file('track');
+        if (!$file->getClientOriginalName()
+            || !$file->getClientOriginalExtension()
+            || !$file->getClientSize()
+            || !$file->getClientMimeType()
+            ) {
+            return Redirect::back()->withErrors(['File properties mismatch']);
+        }
+        $allowed_audio_format = array('mp3', 'wav', 'ogg', 'wma', 'aac');
+        if (!in_array($file->getClientOriginalExtension(), $allowed_audio_format)) {
+            return Redirect::back()->withErrors(['Audio format not supported. Please choose any one format: mp3/wav/ogg/wma/aac']);
+        }
+
+        if ($file->getClientSize() > 8388608) {
+            return Redirect::back()->withErrors(['File size exceeds limit. Max file size: 8MB']);
+        }
+        
+        $file->move($this->user_destination, uniqid() . '-' . $file->getClientOriginalName());
+
+        
+        
+        // $track = array(
+        //     'name' => $file->getClientOriginalName(),
+        //     'ori_extention' => $file->getClientOriginalExtension(),
+        //     'extention' => $file->guessExtension(),
+        //     'size' => $file->getClientSize(),
+        //     'mime' => $file->getClientMimeType()
+        // );
+
+        // $temp = array(
+        //     "test" => $track
+        //     );
+        return Redirect::back()->withErrors(['Uploaded successfully']);
+        
+        return view('test', $temp);
     }
 
 

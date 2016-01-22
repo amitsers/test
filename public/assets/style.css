@@ -231,3 +231,20 @@ span.icon-size {
 span.error {
     color: red;
 }
+
+.upload-block {
+    width: 100%;
+    max-width: 500px;
+}
+
+audio.player {
+    width: 100% !important;
+}
+
+td.track-list {
+    width: 15% !important;
+}
+
+.sm-notice {
+	font-size: 10px;
+}

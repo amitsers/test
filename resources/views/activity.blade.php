@@ -53,6 +53,63 @@
 <!-- #Header Starts -->
 
 
+<div id="activity" class="spacer">
+  <div class="container">
+    <h4 class="wowload fadeInUp">Recent Updates: </h4>
+
+    <p>
+      Audition Date: 12/22/2222<br/>
+      Audition End Date: 89/22/2222
+    </p>
+
+    <br/>    
+    <div class="upload-block">
+      <h4 class="wowload fadeInUp">Your Recent Activity: </h4>
+      <form action="{{URL::to('upload-song')}}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="track" class="control-label">Upload Audio Track:</label>          
+          <span class="error upload-error">
+            <?php
+              if (isset($errors)) {
+                echo '<br/><br/>' . $errors->first() . '<br/><br/>';
+              }
+            ?>
+          </span>
+          <input type="file" class="form-control" id="track" name="track">
+          <input type="hidden" name='_token' value="<?php echo csrf_token(); ?>">
+          <input type="submit" class="btn btn-primary" value="Upload" name="upload">
+        </div>
+      </form>
+    </div>
+    
+    <br/>
+    <!-- <div class="track-list-block">
+      <label for="track-list" class="control-label">Your Uploaded Tracks: </label>      
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Season Name</th>
+            <th>Track <span class="sm-notice"> &nbsp;&nbsp; *Best View in PC</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="track-list">1. Test Audio</td>
+            <td>
+              <audio controls class="player">
+                <source src="http://amarela.kaakai.in/audios/Tushar%20Sinha/Maya%20re%20e%20kirou.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div> -->
+
+  </div>
+</div>
+
 
 <div id="profile" class="spacer">
 
@@ -138,70 +195,6 @@
 </div>
 
 
-
-<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadModalLabel">Choose Profile Picture</h4>
-      </div>
-      <div class="modal-body contactform">
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="control-label">Best size combination: 150 x 198 pixels</label>
-            <input type="text" class="form-control" id="profile_pic">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-          <div class="row">
-    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-upload"> Upload</span></button>
-  </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-    <h2 class="text-center wowload fadeInUp">Upcoming Audition Details</h2>  
-    <div id="carousel-testimonials" class="carousel slide testimonails  wowload fadeInRight" data-ride="carousel">
-    <div class="carousel-inner">  
-      <div class="item active animated bounceInRight row">
-      <div class="animated slideInLeft col-xs-2"><img alt="portfolio" src="https://upload.wikimedia.org/wikipedia/en/8/84/Indian_Idol_2012_logo.png" width="100" class="img-circle img-responsive"></div>
-      <div  class="col-xs-10">
-      <p> I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. </p> 
-      <p>this is about India Idol</p>     
-      <a href="http://www.google.com" title="India Idol Audition">Plese click this link</a>
-      <span>Angel Smith - <b>eshop Canada</b></span>
-      </div>
-      </div>
-      <div class="item  animated bounceInRight row">
-      <div class="animated slideInLeft col-xs-2"><img alt="portfolio" src="images/team/2.jpg" width="100" class="img-circle img-responsive"></div>
-      <div  class="col-xs-10">
-      <p>No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.</p>
-      <span>John Partic - <b>Crazy Pixel</b></span>
-      </div>
-      </div>
-      <div class="item  animated bounceInRight row">
-      <div class="animated slideInLeft  col-xs-2"><img alt="portfolio" src="images/team/3.jpg" width="100" class="img-circle img-responsive"></div>
-      <div  class="col-xs-10">
-      <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue.</p>
-      <span>Harris David - <b>Jet London</b></span>
-      </div>
-      </div>
-  </div>
-
-   <!-- Indicators -->
-    <ol class="carousel-indicators">
-    <li data-target="#carousel-testimonials" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-testimonials" data-slide-to="1"></li>
-    <li data-target="#carousel-testimonials" data-slide-to="2"></li>
-    </ol>
-    <!-- Indicators -->
   </div>
 
 

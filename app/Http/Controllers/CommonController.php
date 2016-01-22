@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use DB;
+
 class CommonController
 {
     public function getResponse($isError, $code, $msg, $data){
@@ -17,5 +19,19 @@ class CommonController
             'data' => $data
         );
         return $res;
+    }
+
+    public function validateUserName($username) {
+    	if (isset($username) && (DB::table('users')->where('username', $username)->exists())) {
+    		return true;
+    	}
+    	return false;
+    }
+
+    public function validateUserId($id) {
+        if (isset($username) && (DB::table('users')->where('id', $id)->exists())) {
+            return true;
+        }
+        return false;
     }
 }
