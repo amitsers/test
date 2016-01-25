@@ -11,6 +11,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\CommonController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\Instamojo;
 use View;
 use Illuminate\Support\Facades\Redirect;
 
@@ -21,7 +23,7 @@ class UserController extends Controller
     function __construct() {
         $this->common = new CommonController();
         $this->auth = new AuthController();
-        $this->user_destination = 'uploads/'.(Auth::user()->username);
+        $this->config = new ConfigController();
     }
 
     /**
@@ -121,6 +123,7 @@ class UserController extends Controller
      * This function is used to upload songs to server
      */
     function uploadSong(Request $request) {
+        $this->user_destination = 'uploads/'.(Auth::user()->username);
         if (Input::file('track') === null) {
              return Redirect::back()->withErrors(['File not found']);
         }
@@ -176,5 +179,40 @@ class UserController extends Controller
 
     public function updateProfileField(Request $request) {
         return $request->all();
+    }
+
+    public function test() {
+        $this->config->getImojoConfig()['api_key'];
+        $api = new Instamojo($this->config->getImojoConfig()['api_key'], 
+            $this->config->getImojoConfig()['auth_token']);
+        
+            $result = file_get_contents('http://requestb.in/ztm7wnzt');
+            echo $result;
+        
+
+        // $response = $api->paymentRequestCreate(array(
+        //         "purpose" => "Online Aud",
+        //         "amount" => "9",
+        //         "send_email" => true,
+        //         "email" => "amitsinha559@gmail.com",
+        //         "redirect_url" => "http://kaakai.in"
+        //         ));
+        //     print_r($response);
+
+        // try {
+        //     $response = $api->paymentRequestCreate(array(
+        //         "purpose" => "Online Aud",
+        //         "amount" => "1",
+        //         "send_email" => true,
+        //         "email" => "amitsinha559@gmail.com",
+        //         "redirect_url" => "http://kaakai.in"
+        //         ));
+        //     print_r($response);
+        // }
+        // catch (\Exception $e) {
+        //     print('Error: ' . $e->getMessage());
+        // }
+
+        return 'eeeeee';
     }
 }

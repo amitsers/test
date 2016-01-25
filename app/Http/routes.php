@@ -24,5 +24,6 @@ Route::post('/login', 'UserController@doLogin');
 Route::post('/send-contact-msg', 'UserController@sendContactMsg');
 Route::get('/logout', 'UserController@logout');
 Route::post('/upload-song', 'UserController@uploadSong');
+Route::get('/test', 'UserController@test');
 
 Route::get('/update-profile-field', 'UserController@updateProfileField');
