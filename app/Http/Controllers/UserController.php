@@ -186,16 +186,19 @@ class UserController extends Controller
         $api = new Instamojo($this->config->getImojoConfig()['api_key'], 
             $this->config->getImojoConfig()['auth_token']);
         
-            $result = file_get_contents('http://requestb.in/ztm7wnzt');
-            echo $result;
-        
+            // $result = file_get_contents('http://requestb.in/qotpl0qo');
+            // echo $result;
+        $response = $api->paymentDetail('MOJO6125005J42405869');
+        echo "<pre>";
+        print_r($response);
+        echo "</pre>";
 
         // $response = $api->paymentRequestCreate(array(
-        //         "purpose" => "Online Aud",
+        //         "purpose" => "Online Audition 28/1",
         //         "amount" => "9",
-        //         "send_email" => true,
-        //         "email" => "amitsinha559@gmail.com",
-        //         "redirect_url" => "http://kaakai.in"
+        //         "redirect_url" => "http://kaakai.in",
+        //         "webhook" => 'http://requestb.in/qotpl0qo',
+        //         "allow_repeated_payments" => false,
         //         ));
         //     print_r($response);
 

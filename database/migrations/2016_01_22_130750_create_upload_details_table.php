@@ -18,6 +18,8 @@ class CreateUploadDetailsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('song_link');
             $table->string('season_name');
+            $table->integer('status');
+            $table->integer('payment_status');
             $table->timestamps();
         });
     }
