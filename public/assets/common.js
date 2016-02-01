@@ -106,6 +106,7 @@ function register() {
 
         if(res.hasOwnProperty('code') && res.code === 'RGSTRD') {
           console.log('registered scuus');
+          window.location="activity";
         }
 
         if(res.hasOwnProperty('isError') && res.isError && res.code === 'EXST') {

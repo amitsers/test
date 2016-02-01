@@ -15,6 +15,7 @@ use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\Instamojo;
 use View;
 use Illuminate\Support\Facades\Redirect;
+use Route;
 
 // use \Auth;
 
@@ -74,7 +75,16 @@ class UserController extends Controller
      * This function is used to view user activity
      **/
     public function activity() {
-        return view('activity');
+        
+        if (Auth::check()) {
+            $data = array(
+                'name' => Auth::user()->name
+            );
+            return view('activity', $data);
+        } else {
+            return 'Please login';
+        }
+        
     }
 
     /**
@@ -123,6 +133,10 @@ class UserController extends Controller
      * This function is used to upload songs to server
      */
     function uploadSong(Request $request) {
+        if (!Auth::check()) {
+            return 'Please login';
+        }
+
         $this->user_destination = 'uploads/'.(Auth::user()->username);
         if (Input::file('track') === null) {
              return Redirect::back()->withErrors(['File not found']);
@@ -143,10 +157,21 @@ class UserController extends Controller
         if ($file->getClientSize() > 8388608) {
             return Redirect::back()->withErrors(['File size exceeds limit. Max file size: 8MB']);
         }
-        
-        $file->move($this->user_destination, uniqid() . '-' . $file->getClientOriginalName());
 
+        $filename = uniqid() . '-' . $file->getClientOriginalName();
         
+        $file->move($this->user_destination, $filename);
+
+        DB::table('upload_details')->insert([
+            'user_id' => Auth::user()->id,
+            'file_name' => $filename,
+            'file_destination' => $this->user_destination,
+            'season_name' => $this->common->getSeasonName(),
+            'status' => 1,
+            'payment_status' => 0
+        ]);
+
+        return redirect()->away($this->common->getPaymentLink());
         
         // $track = array(
         //     'name' => $file->getClientOriginalName(),
@@ -159,9 +184,46 @@ class UserController extends Controller
         // $temp = array(
         //     "test" => $track
         //     );
-        return Redirect::back()->withErrors(['Uploaded successfully']);
+        // return Redirect::back()->withErrors(['Uploaded successfully']);
         
-        return view('test', $temp);
+        // return view('test', $temp);
+    }
+
+    public function uploadThanks() {
+
+        $request = curl_init('https://www.instamojo.com/api/1.1/payment-requests/'.Route::input('payment_request_id').'/');
+        curl_setopt($request, CURLOPT_HTTPHEADER, array(
+            'X-Api-Key: ' . $this->config->getImojoConfig()['api_key'],
+            'X-Auth-Token: ' . $this->config->getImojoConfig()['auth_token']
+        ));
+
+        curl_setopt ($request, CURLOPT_RETURNTRANSFER, true);
+        $result = json_decode(curl_exec($request));
+
+        if (!$result->success) {
+            return 'payment not done';
+        }
+        echo "<pre>";
+        print_r($result);
+        echo "</pre><br/><br/><br/>";
+
+        if (isset($result->payment_request) 
+            && ($result->payment_request->id === Route::input('payment_request_id'))) {
+            
+            echo "success";
+        }
+
+
+
+        // if (!isset(Route::input('payment_request_id')) || !isset(Route::input('payment_id'))) {
+        //     return redirect()->route('activity');
+        //     //return Redirect::back()->withErrors(['Payment not successfull. Please click on Pay Now link.']);
+        // }
+
+        
+
+        return '';
+
     }
 
 
@@ -182,16 +244,36 @@ class UserController extends Controller
     }
 
     public function test() {
-        $this->config->getImojoConfig()['api_key'];
-        $api = new Instamojo($this->config->getImojoConfig()['api_key'], 
-            $this->config->getImojoConfig()['auth_token']);
         
+
+        $datatopost = array (
+            'purpose' => 'One - to test email and name',
+            'amount' => 9
+        );
+
+        $request = curl_init('https://www.instamojo.com/api/1.1/payment-requests/39ad214e584241a98b67aa0c7ef2e5e2');
+        curl_setopt($request, CURLOPT_HTTPHEADER, array(
+            'X-Api-Key: ' . $this->config->getImojoConfig()['api_key'],
+            'X-Auth-Token: ' . $this->config->getImojoConfig()['auth_token']
+        ));
+
+        // curl_setopt ($request, CURLOPT_POST, true);
+        curl_setopt ($request, CURLOPT_POSTFIELDS, $datatopost);
+        curl_setopt ($request, CURLOPT_RETURNTRANSFER, true);
+
+
+        $result = curl_exec($request);
+        print($result);
+        
+        // $this->config->getImojoConfig()['api_key'];
+        // $api = new Instamojo($this->config->getImojoConfig()['api_key'], 
+        //     $this->config->getImojoConfig()['auth_token']);
             // $result = file_get_contents('http://requestb.in/qotpl0qo');
             // echo $result;
-        $response = $api->paymentDetail('MOJO6125005J42405869');
-        echo "<pre>";
-        print_r($response);
-        echo "</pre>";
+        // $response = $api->paymentDetail('MOJO6125005J42405869');
+        // echo "<pre>";
+        // print_r($response);
+        // echo "</pre>";
 
         // $response = $api->paymentRequestCreate(array(
         //         "purpose" => "Online Audition 28/1",

@@ -33,7 +33,7 @@
                  <li >
                  <a href="index.html#contact">Contact</a></li>
                  <li class="dropdown">
-                  <a class="dropdown-toggle active" data-toggle="dropdown">Amit<span class="caret"></span></a>
+                  <a class="dropdown-toggle active" data-toggle="dropdown">{{{$name}}}<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="activity">Activity</a></li>
                     <li class="active"><a href="#">Profile</a></li>
@@ -77,7 +77,7 @@
           </span>
           <input type="file" class="form-control" id="track" name="track">
           <input type="hidden" name='_token' value="<?php echo csrf_token(); ?>">
-          <input type="submit" class="btn btn-primary" value="Upload" name="upload">
+          <input type="submit" class="btn btn-primary" value="Pay & Upload" name="upload">
         </div>
       </form>
     </div>

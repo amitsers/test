@@ -19,6 +19,8 @@ class CreateTransactionsTable extends Migration
             $table->integer('song_id')->unsigned();
             $table->foreign('song_id')->references('id')->on('upload_details');
             $table->string('payment_request_id');
+            $table->string('payment_id');
+            $table->string('name');
             $table->integer('phone');
             $table->string('email');
             $table->integer('amount');
@@ -26,8 +28,8 @@ class CreateTransactionsTable extends Migration
             $table->string('longurl');
             $table->string('redirect_url');
             $table->string('webhook');
-            $table->string('payment_id');
-            $table->string('status');
+            $table->string('payment_request_status');
+            $table->string('payment_status');
             $table->string('payment_date_time');
             $table->timestamps();
         });

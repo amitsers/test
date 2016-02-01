@@ -35,4 +35,12 @@ class CommonController
         return false;
     }
 
+    public function getSeasonName() {
+        return 'SEASON_1';
+    }
+
+    public function getPaymentLink() {
+        return 'https://www.instamojo.com/@onlineaudition/39ad214e584241a98b67aa0c7ef2e5e2';
+    }
+
 }

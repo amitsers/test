@@ -16,7 +16,8 @@ class CreateUploadDetailsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('song_link');
+            $table->string('file_destination');
+            $table->string('file_name');
             $table->string('season_name');
             $table->integer('status');
             $table->integer('payment_status');

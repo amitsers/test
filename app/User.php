@@ -44,4 +44,8 @@ class User extends Model implements AuthenticatableContract,
     public function uploadDetail() {
         return $this->hasMany('App\UploadDetail', 'user_id');
     }
+
+    public function transaction() {
+        return $this->hasMany('App\transaction', 'user_id');
+    }
 }
