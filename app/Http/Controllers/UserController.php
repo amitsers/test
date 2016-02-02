@@ -131,6 +131,7 @@ class UserController extends Controller
 
     /**
      * This function is used to upload songs to server
+     * Creates payment link and redirect it to instamojo page
      */
     function uploadSong(Request $request) {
         if (!Auth::check()) {
@@ -162,16 +163,65 @@ class UserController extends Controller
         
         $file->move($this->user_destination, $filename);
 
-        DB::table('upload_details')->insert([
+        $song_id = DB::table('upload_details')->insertGetId([
             'user_id' => Auth::user()->id,
             'file_name' => $filename,
             'file_destination' => $this->user_destination,
             'season_name' => $this->common->getSeasonName(),
             'status' => 1,
-            'payment_status' => 0
+            'payment_status' => 0,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s")
         ]);
 
-        return redirect()->away($this->common->getPaymentLink());
+        $api = new Instamojo($this->config->getImojoConfig()['api_key'], 
+            $this->config->getImojoConfig()['auth_token']);
+        try {
+
+            $create_payment_res = $api->paymentRequestCreate(array(
+                "purpose" => $this->common->getPaymentDetails()['purpose'],
+                "amount" => $this->common->getPaymentDetails()['amount'],
+                "send_email" => $this->common->getPaymentDetails()['send_email'],
+                "email" =>  Auth::user()->email,
+                "redirect_url" => $this->common->getPaymentDetails()['redirect_url'] //change it in live
+                ));
+
+            var_dump($create_payment_res);
+            echo $create_payment_res['id'];
+
+            if ($create_payment_res && $create_payment_res['id']) {
+                DB::table('transactions')->insert([
+                    'user_id' => Auth::user()->id,
+                    'song_id' => $song_id,
+                    'payment_request_id' => $create_payment_res['id'],
+                    'name' => Auth::user()->name,
+                    'email' => Auth::user()->email,
+                    'amount' => $this->common->getPaymentDetails()['amount'],
+                    'shorturl' => $create_payment_res['shorturl'],
+                    'longurl' => $create_payment_res['longurl'],
+                    'redirect_url' => $this->common->getPaymentDetails()['redirect_url'],
+                    'webhook' => $this->common->getPaymentDetails()['webhook'],
+                    'payment_request_status' => $create_payment_res['status'],
+                    'created_at' => date("Y-m-d H:i:s"),
+                    'updated_at' => date("Y-m-d H:i:s")
+                ]);
+                return redirect()->away($create_payment_res['longurl']);
+            } else {
+                // send mail here to admin
+                echo "send mail to admin";
+                
+            }
+
+
+        }
+        catch (\Exception $e) {
+            print('Error: ' . $e->getMessage());
+            // send mail to admin
+            echo "send mail to admin-> exception";
+        }
+
+        return redirect()->route('activity');
+        
         
         // $track = array(
         //     'name' => $file->getClientOriginalName(),
@@ -191,27 +241,50 @@ class UserController extends Controller
 
     public function uploadThanks() {
 
-        $request = curl_init('https://www.instamojo.com/api/1.1/payment-requests/'.Route::input('payment_request_id').'/');
-        curl_setopt($request, CURLOPT_HTTPHEADER, array(
-            'X-Api-Key: ' . $this->config->getImojoConfig()['api_key'],
-            'X-Auth-Token: ' . $this->config->getImojoConfig()['auth_token']
-        ));
+        if (Input::get("payment_request_id") && Input::get("payment_id")) {
 
-        curl_setopt ($request, CURLOPT_RETURNTRANSFER, true);
-        $result = json_decode(curl_exec($request));
+            $request = curl_init('https://www.instamojo.com/api/1.1/payment-requests/'.Input::get("payment_request_id").'/');
+            curl_setopt($request, CURLOPT_HTTPHEADER, array(
+                'X-Api-Key: ' . $this->config->getImojoConfig()['api_key'],
+                'X-Auth-Token: ' . $this->config->getImojoConfig()['auth_token']
+            ));
 
-        if (!$result->success) {
-            return 'payment not done';
+            curl_setopt ($request, CURLOPT_RETURNTRANSFER, true);
+            $result = json_decode(curl_exec($request));
+
+            if (!$result->success) {
+                return 'payment not done';
+            }
+            echo "<pre>";
+            print_r($result);
+            echo "</pre><br/><br/><br/>";
+
+            if (isset($result->payment_request)
+                && isset($result->payment_request->payments)
+                && (count($result->payment_request->payments) > 0)) {
+                if($result->payment_request->payments[0]->payment_id === Input::get("payment_id")) {
+                    DB::table('transactions')
+                    ->where('payment_request_id', $result->payment_request->id)
+                    ->update([
+                        'payment_id' => $result->payment_request->payments[0]->payment_id,
+                        'phone' => $result->payment_request->payments[0]->buyer_phone,
+                        'email' => $result->payment_request->payments[0]->buyer_email,
+                        'payment_request_status' => $result->payment_request->status,
+                        'payment_status' => $result->payment_request->payments[0]->status,
+                        'payment_date_time' => $result->payment_request->payments[0]->created_at,
+                        'updated_at' => date("Y-m-d H:i:s")
+                    ]);
+                    echo 'send mail - payment done successfully';
+                    return Redirect::to('activity')->with('payment_message', 'Payment done successfully!!');
+                } else {
+                    echo 'some mismatch send mail';
+                }
+                echo "success";
+            }
+        } else {
+            //return Redirect::to('activity');
         }
-        echo "<pre>";
-        print_r($result);
-        echo "</pre><br/><br/><br/>";
-
-        if (isset($result->payment_request) 
-            && ($result->payment_request->id === Route::input('payment_request_id'))) {
-            
-            echo "success";
-        }
+        
 
 
 
@@ -244,26 +317,27 @@ class UserController extends Controller
     }
 
     public function test() {
-        
-
-        $datatopost = array (
-            'purpose' => 'One - to test email and name',
-            'amount' => 9
-        );
-
-        $request = curl_init('https://www.instamojo.com/api/1.1/payment-requests/39ad214e584241a98b67aa0c7ef2e5e2');
-        curl_setopt($request, CURLOPT_HTTPHEADER, array(
-            'X-Api-Key: ' . $this->config->getImojoConfig()['api_key'],
-            'X-Auth-Token: ' . $this->config->getImojoConfig()['auth_token']
-        ));
-
-        // curl_setopt ($request, CURLOPT_POST, true);
-        curl_setopt ($request, CURLOPT_POSTFIELDS, $datatopost);
-        curl_setopt ($request, CURLOPT_RETURNTRANSFER, true);
 
 
-        $result = curl_exec($request);
-        print($result);
+
+        // $datatopost = array (
+        //     'purpose' => 'One - to test email and name',
+        //     'amount' => 9
+        // );
+
+        // $request = curl_init('https://www.instamojo.com/api/1.1/payment-requests/39ad214e584241a98b67aa0c7ef2e5e2');
+        // curl_setopt($request, CURLOPT_HTTPHEADER, array(
+        //     'X-Api-Key: ' . $this->config->getImojoConfig()['api_key'],
+        //     'X-Auth-Token: ' . $this->config->getImojoConfig()['auth_token']
+        // ));
+
+        // // curl_setopt ($request, CURLOPT_POST, true);
+        // curl_setopt ($request, CURLOPT_POSTFIELDS, $datatopost);
+        // curl_setopt ($request, CURLOPT_RETURNTRANSFER, true);
+
+
+        // $result = curl_exec($request);
+        // print($result);
         
         // $this->config->getImojoConfig()['api_key'];
         // $api = new Instamojo($this->config->getImojoConfig()['api_key'], 
@@ -280,7 +354,7 @@ class UserController extends Controller
         //         "amount" => "9",
         //         "redirect_url" => "http://kaakai.in",
         //         "webhook" => 'http://requestb.in/qotpl0qo',
-        //         "allow_repeated_payments" => false,
+        //         "allow_repeated_payments" => true,
         //         ));
         //     print_r($response);
 

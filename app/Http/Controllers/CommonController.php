@@ -43,4 +43,14 @@ class CommonController
         return 'https://www.instamojo.com/@onlineaudition/39ad214e584241a98b67aa0c7ef2e5e2';
     }
 
+    public function getPaymentDetails() {
+        return array(
+            'purpose' => "Online Audition - 02-02-2016",
+            'amount' => "9",
+            'send_email' => false,
+            'redirect_url' => "http://kaakai.in",
+            "webhook" => ''
+        );
+    }
+
 }
