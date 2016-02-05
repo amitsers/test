@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('age');
             $table->string('password', 60);
+            $table->integer('allow_payment', 60);
             $table->rememberToken();
             $table->timestamps();
         });

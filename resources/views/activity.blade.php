@@ -58,10 +58,9 @@
     <h4 class="wowload fadeInUp">Recent Updates: </h4>
 
     <p>
-      Audition Date: 12/22/2222<br/>
-      Audition End Date: 89/22/2222
+ <!--      Audition Date: 12/22/2222<br/>
+      Audition End Date: 89/22/2222 -->
     </p>
-
     <br/>    
     <div class="upload-block">
       <h4 class="wowload fadeInUp">Your Recent Activity: </h4> {{Session::get('payment_message')}}
@@ -83,29 +82,42 @@
     </div>
     
     <br/>
-    <!-- <div class="track-list-block">
+
+    <div class="track-list-block">
       <label for="track-list" class="control-label">Your Uploaded Tracks: </label>      
       <table class="table table-striped">
         <thead>
           <tr>
             <th>Season Name</th>
             <th>Track <span class="sm-notice"> &nbsp;&nbsp; *Best View in PC</span></th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="track-list">1. Test Audio</td>
-            <td>
-              <audio controls class="player">
-                <source src="http://amarela.kaakai.in/audios/Tushar%20Sinha/Maya%20re%20e%20kirou.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-              </audio>
+          @foreach ($upload_details as $song)          
+            <tr>
+              <td class="track-list">{{ $song->season_name }}</td>
+              <td>
+                
+                <audio controls class="player">
+                  <source src="{{ $song->file_destination }}/{{ $song->file_name }}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
 
-            </td>
-          </tr>
+              </td>
+              <td class="track-list">
+                @if ($song->payment_status === 1)
+                  Paid
+                @else
+                  <a href="{{ $song->transaction->longurl }}">Pay Now</a>
+                @endif
+
+              </td>
+            </tr>
+          @endforeach
         </tbody>
       </table>
-    </div> -->
+    </div>
 
   </div>
 </div>

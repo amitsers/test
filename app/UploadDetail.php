@@ -13,6 +13,6 @@ class UploadDetail extends Model
     }
 
     public function transaction() {
-        return $this->hasOne('App\transaction', 'user_id');
+        return $this->hasOne('App\transaction', 'song_id');
     }
 }

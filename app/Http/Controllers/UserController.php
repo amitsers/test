@@ -16,6 +16,8 @@ use App\Http\Controllers\Instamojo;
 use View;
 use Illuminate\Support\Facades\Redirect;
 use Route;
+use App\UploadDetail;
+use App\Transaction;
 
 // use \Auth;
 
@@ -54,7 +56,11 @@ class UserController extends Controller
         if (Auth::check()) {
             $id = Auth::user()->id;
             $username = explode('@', $request->email)[0];
-            DB::table('users')->where('id', $id)->update(['username' => $username.'.'.$id]);
+            DB::table('users')->where('id', $id)
+                ->update([
+                    'username' => $username.'.'.$id,
+                    'allow_payment' => 1
+            ]);
         }
 
         $data = array(
@@ -77,9 +83,14 @@ class UserController extends Controller
     public function activity() {
         
         if (Auth::check()) {
+            $upload_details = UploadDetail::with('transaction')
+                ->where('user_id', Auth::user()->id)
+                ->get();
             $data = array(
-                'name' => Auth::user()->name
+                'name' => Auth::user()->name,
+                'upload_details' => $upload_details
             );
+            // 'track_link' => $user_uploads->file_destination . '/' . $user_uploads->file_name,
             return view('activity', $data);
         } else {
             return 'Please login';
@@ -221,24 +232,12 @@ class UserController extends Controller
         }
 
         return redirect()->route('activity');
-        
-        
-        // $track = array(
-        //     'name' => $file->getClientOriginalName(),
-        //     'ori_extention' => $file->getClientOriginalExtension(),
-        //     'extention' => $file->guessExtension(),
-        //     'size' => $file->getClientSize(),
-        //     'mime' => $file->getClientMimeType()
-        // );
-
-        // $temp = array(
-        //     "test" => $track
-        //     );
-        // return Redirect::back()->withErrors(['Uploaded successfully']);
-        
-        // return view('test', $temp);
     }
 
+
+    /**
+     * This function is used for thanks page after payment
+     */
     public function uploadThanks() {
 
         if (Input::get("payment_request_id") && Input::get("payment_id")) {
@@ -253,7 +252,7 @@ class UserController extends Controller
             $result = json_decode(curl_exec($request));
 
             if (!$result->success) {
-                return 'payment not done';
+                return Redirect::to('activity')->with('payment_message', 'Payment unsuccessfull');
             }
             echo "<pre>";
             print_r($result);
@@ -274,28 +273,28 @@ class UserController extends Controller
                         'payment_date_time' => $result->payment_request->payments[0]->created_at,
                         'updated_at' => date("Y-m-d H:i:s")
                     ]);
+
+                    $song_id = DB::table('transactions')
+                    ->where('payment_request_id', $result->payment_request->id)
+                    ->first()->song_id;
+
+                    DB::table('upload_details')
+                    ->where('id', $song_id)
+                    ->update([
+                        'payment_status' => 1,
+                        'updated_at' => date("Y-m-d H:i:s")
+                    ]);
+
                     echo 'send mail - payment done successfully';
                     return Redirect::to('activity')->with('payment_message', 'Payment done successfully!!');
-                } else {
-                    echo 'some mismatch send mail';
                 }
-                echo "success";
+                
+                echo 'some mismatch send mail';
+                return Redirect::to('activity')->with('payment_message', 'Something went wrong. Contact support.');
             }
-        } else {
-            //return Redirect::to('activity');
         }
-        
 
-
-
-        // if (!isset(Route::input('payment_request_id')) || !isset(Route::input('payment_id'))) {
-        //     return redirect()->route('activity');
-        //     //return Redirect::back()->withErrors(['Payment not successfull. Please click on Pay Now link.']);
-        // }
-
-        
-
-        return '';
+        return Redirect::to('activity');
 
     }
 
