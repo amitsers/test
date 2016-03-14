@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Redirect;
 use Route;
 use App\UploadDetail;
 use App\Transaction;
-
+use Log;
+use Mail;
 // use \Auth;
 
 class UserController extends Controller
@@ -27,6 +28,7 @@ class UserController extends Controller
         $this->common = new CommonController();
         $this->auth = new AuthController();
         $this->config = new ConfigController();
+        $this->file_name = 'UserController.php';
     }
 
     /**
@@ -61,6 +63,8 @@ class UserController extends Controller
                     'username' => $username.'.'.$id,
                     'allow_payment' => 1
             ]);
+
+            $this->common->log('error', $this->file_name, 'Inserted to users table successfully ' . __LINE__);
         }
 
         $data = array(
@@ -90,6 +94,10 @@ class UserController extends Controller
                 'name' => Auth::user()->name,
                 'upload_details' => $upload_details
             );
+
+            Mail::send('activity', $data, function ($message) {
+                $message->to('amit.sers@gmail.com')->subject('Learning Laravel test email');
+            });
             // 'track_link' => $user_uploads->file_destination . '/' . $user_uploads->file_name,
             return view('activity', $data);
         } else {
@@ -167,6 +175,7 @@ class UserController extends Controller
         }
 
         if ($file->getClientSize() > 8388608) {
+            $this->common->log('warning', $this->file_name, 'File exceeds 8MB ' . __LINE__);
             return Redirect::back()->withErrors(['File size exceeds limit. Max file size: 8MB']);
         }
 
@@ -197,9 +206,6 @@ class UserController extends Controller
                 "redirect_url" => $this->common->getPaymentDetails()['redirect_url'] //change it in live
                 ));
 
-            var_dump($create_payment_res);
-            echo $create_payment_res['id'];
-
             if ($create_payment_res && $create_payment_res['id']) {
                 DB::table('transactions')->insert([
                     'user_id' => Auth::user()->id,
@@ -216,8 +222,10 @@ class UserController extends Controller
                     'created_at' => date("Y-m-d H:i:s"),
                     'updated_at' => date("Y-m-d H:i:s")
                 ]);
+                $this->common->log('info', $this->file_name, 'Inserted to transactions table successfully - ' . __LINE__);
                 return redirect()->away($create_payment_res['longurl']);
             } else {
+                $this->common->log('error', $this->file_name, 'Invalid payment link ' . __LINE__);
                 // send mail here to admin
                 echo "send mail to admin";
                 
@@ -226,6 +234,7 @@ class UserController extends Controller
 
         }
         catch (\Exception $e) {
+            $this->common->log('error', $this->file_name, 'Payment link not created - ' . __LINE__);
             print('Error: ' . $e->getMessage());
             // send mail to admin
             echo "send mail to admin-> exception";
@@ -252,6 +261,7 @@ class UserController extends Controller
             $result = json_decode(curl_exec($request));
 
             if (!$result->success) {
+                $this->common->log('warning', $this->file_name, 'Payment Unsuccessfull - ' . __LINE__);
                 return Redirect::to('activity')->with('payment_message', 'Payment unsuccessfull');
             }
             echo "<pre>";
@@ -262,6 +272,7 @@ class UserController extends Controller
                 && isset($result->payment_request->payments)
                 && (count($result->payment_request->payments) > 0)) {
                 if($result->payment_request->payments[0]->payment_id === Input::get("payment_id")) {
+                    $this->common->log('debug', $this->file_name, 'Got all payment detials - ' . __LINE__);
                     DB::table('transactions')
                     ->where('payment_request_id', $result->payment_request->id)
                     ->update([
@@ -274,6 +285,8 @@ class UserController extends Controller
                         'updated_at' => date("Y-m-d H:i:s")
                     ]);
 
+                    $this->common->log('debug', $this->file_name, 'Transaction table updated with all payment details - ' . __LINE__);
+
                     $song_id = DB::table('transactions')
                     ->where('payment_request_id', $result->payment_request->id)
                     ->first()->song_id;
@@ -285,9 +298,13 @@ class UserController extends Controller
                         'updated_at' => date("Y-m-d H:i:s")
                     ]);
 
+                    $this->common->log('debug', $this->file_name, 'upload_details table updated with status & date - ' . __LINE__);
+
                     echo 'send mail - payment done successfully';
                     return Redirect::to('activity')->with('payment_message', 'Payment done successfully!!');
                 }
+
+                $this->common->log('error', $this->file_name, 'Got wrong payment details - ' . __LINE__);
                 
                 echo 'some mismatch send mail';
                 return Redirect::to('activity')->with('payment_message', 'Something went wrong. Contact support.');

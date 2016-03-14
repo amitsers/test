@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use DB;
+use Log;
 
 class CommonController
 {
@@ -51,6 +52,25 @@ class CommonController
             'redirect_url' => "http://kaakai.in",
             "webhook" => ''
         );
+    }
+
+    public function log($type, $file_name, $msg) {
+        if ($type == "info") {
+            Log::info($file_name . " - " . $msg);    
+        }
+
+        if ($type == "debug") {
+            Log::debug($file_name . " - " . $msg);    
+        }
+
+        if ($type == "warning") {
+            Log::warning($file_name . " - " . $msg);    
+        }
+
+        if ($type == "error") {
+            Log::error($file_name . " - " . $msg);    
+        }
+        
     }
 
 }
