@@ -57,18 +57,20 @@
                  <li class="scroll"><a href="#home">Home</a></li>
                  <li class="scroll"><a href="#rules">Rules</a></li>
                  <li class="scroll"><a href="#register">Register</a></li>
-                 <li ><a href="#">Other Auditions</a></li>
                  <li class="scroll"><a href="#contact">Contact</a></li>
                  <li ><a href="#" data-toggle="modal" data-target="#exampleModal">Login</a></li>
-                 <li class="dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown">Amit<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="activity">Activity</a></li>
-                    <li><a href="profile">Profile</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Logout</a></li>
-                  </ul>
-                 </li>
+                  @if (isset($name))
+                    <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">{{{$name}}}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="activity">Activity</a></li>
+                      <li><a href="profile">Profile</a></li>
+                      <li class="divider"></li>
+                      <li><a href="logout">Logout</a></li>
+                    </ul>
+                   </li>
+                  @endif
+                 
               </ul>
             </div>
             <!-- #Nav Ends -->

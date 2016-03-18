@@ -30,7 +30,7 @@ function doLogin() {
         }
 
         if (res.hasOwnProperty('code') && res['code'] === 'LGDIN') {
-          window.location="profile";
+          window.location="activity";
         }
       }
     });

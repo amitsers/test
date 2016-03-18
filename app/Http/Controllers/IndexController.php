@@ -7,16 +7,25 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\AuthController;
+
 class IndexController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    function __construct() {
+        $this->auth = new AuthController();
+        $this->file_name = 'IndexController.php';
+    }
+
     public function index()
     {
-        return view('index');
+    	$data = array();
+    	if (Auth::check()) {
+            $data = array(
+            	"name" => Auth::user()->name
+            );
+        }
+        return view('index', $data);
     }
     
 }

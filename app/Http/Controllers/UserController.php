@@ -19,7 +19,7 @@ use Route;
 use App\UploadDetail;
 use App\Transaction;
 use Log;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 // use \Auth;
 
 class UserController extends Controller
@@ -95,9 +95,27 @@ class UserController extends Controller
                 'upload_details' => $upload_details
             );
 
-            Mail::send('activity', $data, function ($message) {
-                $message->to('amit.sers@gmail.com')->subject('Learning Laravel test email');
+            // Mail::send('activity', $data, function ($message) {
+            //     $message->to('amit.sers@gmail.com')->subject('Learning Laravel test email');
+            // });
+
+
+            // Mail::send('emails.thank', $data, function($message) use ($subject) {
+            //   // note: if you don't set this, it will use the defaults from config/mail.php
+            //   $message->from('admin@onlineaudition.xyz', 'Sender Name');
+            //   $message->to('amitsinha559@gmail.com', 'John Smith')
+            //     ->subject($subject);
+            // });
+
+            Mail::send('emails.thank',
+            array(), function($message)
+            {
+                $message->from("admin@onlineaudition.xyz");
+                $message->to("amitsinha559@gmail.com", "ADMIN_NAME")->subject('New site request');
             });
+
+
+
             // 'track_link' => $user_uploads->file_destination . '/' . $user_uploads->file_name,
             return view('activity', $data);
         } else {
