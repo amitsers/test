@@ -54,22 +54,24 @@
             <!-- Nav Starts -->
             <div class="navbar-collapse  collapse">
               <ul class="nav navbar-nav navbar-right">
-                 <li class="scroll"><a href="#home">Home</a></li>
-                 <li class="scroll"><a href="#rules">Rules</a></li>
-                 <li class="scroll"><a href="#register">Register</a></li>
-                 <li class="scroll"><a href="#contact">Contact</a></li>
-                 <li ><a href="#" data-toggle="modal" data-target="#exampleModal">Login</a></li>
-                  @if (isset($name))
-                    <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">{{{$name}}}<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="activity">Activity</a></li>
-                      <li><a href="profile">Profile</a></li>
-                      <li class="divider"></li>
-                      <li><a href="logout">Logout</a></li>
-                    </ul>
-                   </li>
-                  @endif
+                <li class="scroll"><a href="#home">Home</a></li>
+                <li class="scroll"><a href="#rules">Rules</a></li>
+                <li class="scroll"><a href="#contact">Contact</a></li>
+                @if (!isset($user_name))
+                  <li class="scroll"><a href="#register">Register</a></li>
+                  <li ><a href="#" data-toggle="modal" data-target="#exampleModal">Login</a></li>
+                @endif
+
+                @if (isset($user_name))
+                  <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown">{{{$user_name}}}<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="activity">Activity</a></li>
+                    <li class="divider"></li>
+                    <li><a href="logout">Logout</a></li>
+                  </ul>
+                 </li>
+                @endif
                  
               </ul>
             </div>
@@ -94,7 +96,7 @@
         <img src="images/portfolio/1.jpg" alt="img01"/>
         <figcaption>
             <h2>Event</h2>            
-            <p>SEASON_NAME is India's first online based singing contest<br/>
+            <p>@if (isset($season_name)) {{{$season_name}}} @endif  is India's first online based singing contest<br/>
               Just send us your audio and Get Noticed</p>    
             <!-- <a href="images/portfolio/1.jpg" title="1" data-gallery>View more</a></p>             -->
         </figcaption>
@@ -111,8 +113,8 @@
         <img src="images/portfolio/3.jpg" alt="img01"/>
         <figcaption>
             <h2>Dates</h2>
-            <p>Audition Start Date: AUD_START_DATE<br/>
-              Audition End Date: AUD_END_DATE<br/>  
+            <p>Audition Start Date: @if(isset($season_start_date)) {{{$season_start_date}}} @endif<br/>
+              Audition End Date: @if(isset($season_start_date)) {{{$season_end_date}}} @endif<br/>  
               <a href="#imp_dates">View More</a></p>       
         </figcaption>
     </figure>
@@ -220,7 +222,7 @@
         <li>Judges decision will be final.</li>
         <li>The organizing committee reserves the right to change rules and to change or extend Audition/Finale dates, if desired.</li>
         <li>We will keep audio tracks of top 10 contestants in our website. This will help the contestant to GET NOTICED in world.</li>
-        <li>Prize amount of SEASON_NAME is not decided yet. We'll publish here soon.</li>
+        <li>Prize amount of {{{$season_name}}} is not decided yet. We'll publish here soon.</li>
         <li>If the contest gets cancelled due to any reason then our organisation will refund the full amount paid by the participant.</li>
         <li>For any doubts / queries you can <a href="#contact">reach to</a> us any time.</li>
       </ul>
@@ -259,24 +261,25 @@
 
 <div id="register"  class="container spacer">
 <div class="container contactform center">
-<h2 class="text-center  wowload fadeInUp">Register for SEASON_NAME</h2>
-  <div class="row wowload fadeInLeftBig">      
-      <div class="col-sm-6 col-sm-offset-3 col-xs-12">      
-        <span class="error name-error"></span>
-        <input type="text" placeholder="Name" id="name" name="name">   
-        <span class="error email-error"></span>     
-        <input type="text" placeholder="Email" id="email" name="email">
-        <span class="error age-error"></span>
-        <input type="text" placeholder="Age" id="age" name="age">
-        <span class="error password-error"></span>
-        <input type="password" placeholder="Password" id="password" name="password">
-        <span class="error confirm-password-error"></span>
-        <input type="password" placeholder="Confirmation Password" id="confirmPassword" name="password_confirmation">
-        <input type="hidden" name='_token' value="<?php echo csrf_token(); ?>" id='_token'>
-        <button class="btn btn-primary" onClick="register();"><i class="glyphicon glyphicon-thumbs-up"></i> Register</button>
-      </div>
-  </div>
-
+  @if (!isset($user_name))
+    <h2 class="text-center  wowload fadeInUp">Register for {{{$season_name}}}</h2>
+    <div class="row wowload fadeInLeftBig">      
+        <div class="col-sm-6 col-sm-offset-3 col-xs-12">      
+          <span class="error name-error"></span>
+          <input type="text" placeholder="Name" id="name" name="name">   
+          <span class="error email-error"></span>     
+          <input type="text" placeholder="Email" id="email" name="email">
+          <span class="error age-error"></span>
+          <input type="text" placeholder="Age" id="age" name="age">
+          <span class="error password-error"></span>
+          <input type="password" placeholder="Password" id="password" name="password">
+          <span class="error confirm-password-error"></span>
+          <input type="password" placeholder="Confirmation Password" id="confirmPassword" name="password_confirmation">
+          <input type="hidden" name='_token' value="<?php echo csrf_token(); ?>" id='_token'>
+          <button class="btn btn-primary" onClick="register();"><i class="glyphicon glyphicon-thumbs-up"></i> Register</button>
+        </div>
+    </div>
+  @endif
   <div class="process">
     <h3 class="text-center wowload fadeInUp">What you need to do ?</h3>
     <ul class="row text-center list-inline  wowload bounceInUp">
@@ -362,7 +365,7 @@
 
 <!-- Footer Starts -->
 <div class="footer text-center spacer">
-  <a href="#home" title="Online singing audition 2016">Home</a> | <a href="#rules" title="Online singing audition rules">Rules</a> | <a href="#register" title="Register for SEASON_NAME">Register</a> | <a href="" title="Singing audition dates">Other Audition Date</a>
+  <a href="#home" title="Online singing audition 2016">Home</a> | <a href="#rules" title="Online singing audition rules">Rules</a> | <a href="#register" title="Register for {{{$season_name}}}">Register</a>
   <br/><br/>
   Call / Watsapp: +91-8822455669<br/><br/>
   Email: query@onlineaudition.xyz<br/><br/><br/>

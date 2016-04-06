@@ -25,24 +25,22 @@
             </div>
 
             <!-- Nav Starts -->
-            <!-- <div class="navbar-collapse  collapse">
+            <div class="navbar-collapse  collapse">
               <ul class="nav navbar-nav navbar-right">
                  <li><a href="home#home">Home</a></li>
                  <li ><a href="home#rules">Rules</a></li>
-                 <li ><a href="#">Other Auditions</a></li>
                  <li >
                  <a href="index.html#contact">Contact</a></li>
                  <li class="dropdown">
                   <a class="dropdown-toggle active" data-toggle="dropdown">{{{$name}}}<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="activity">Activity</a></li>
-                    <li class="active"><a href="#">Profile</a></li>
+                    <li><a class="active" href="activity">Activity</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Logout</a></li>
+                    <li><a href="logout">Logout</a></li>
                   </ul>
                  </li>
               </ul>
-            </div> -->
+            </div>
             <!-- #Nav Ends -->
 
           </div>

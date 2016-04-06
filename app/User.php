@@ -48,4 +48,8 @@ class User extends Model implements AuthenticatableContract,
     public function transaction() {
         return $this->hasMany('App\transaction', 'user_id');
     }
+
+    public function selectedUser() {
+        return $this->hasMany('App\SelectedUser', 'user_id');
+    }
 }

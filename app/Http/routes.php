@@ -28,6 +28,9 @@ Route::get('/logout', 'UserController@logout');
 Route::post('/upload-song', 'UserController@uploadSong');
 Route::get('/test', 'UserController@test');
 Route::get('/update-profile-field', 'UserController@updateProfileField');
+Route::get('/admin/login', 'AdminController@doLogin');
+Route::get('/admin/users', 'AdminController@index');
+Route::get('/admin/select-unselect', 'AdminController@selectUnselect');
 
 // Route::get('test', function(){
 //     return "<h1>" . Input::get("color") . "</h1>";
