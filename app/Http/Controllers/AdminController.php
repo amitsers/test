@@ -29,9 +29,8 @@ class AdminController extends Controller
             $users[$key]['email'] = $value->email;
             $users[$key]['username'] = $value->username;
             $users[$key]['age'] = $value->age;
-            $users[$key]['is_selected'] = $value->is_selected;
             $users[$key]['allow_payment'] = $value->name;
-            $users[$key]['created_at'] = $value->email;
+            $users[$key]['created_at'] = $value->created_at;
             foreach ($all_user_details[$key]->uploadDetail as $key1 => $value1) {
                 $users[$key]['upload_detail'][$key1]['id'] = $value1->id;
                 $users[$key]['upload_detail'][$key1]['user_id'] = $value1->user_id;
@@ -39,6 +38,7 @@ class AdminController extends Controller
                 $users[$key]['upload_detail'][$key1]['file_name'] = $value1->file_name;
                 $users[$key]['upload_detail'][$key1]['status'] = $value1->status;
                 $users[$key]['upload_detail'][$key1]['payment_status'] = $value1->payment_status;
+                $users[$key]['upload_detail'][$key1]['is_selected'] = $value1->is_selected;
                 $users[$key]['upload_detail'][$key1]['season_name'] = $value1->season_name;
                 $users[$key]['upload_detail'][$key1]['created_at'] = $value1->created_at->toDateTimeString();
                 $users[$key]['upload_detail'][$key1]['updated_at'] = $value1->updated_at->toDateTimeString();
@@ -58,35 +58,18 @@ class AdminController extends Controller
             $validator = Validator::make($request->all(), [
                 'user_id' => 'required',
                 'season_details_id' => 'required',
-                'is_selected' => 'required'
+                'is_selected' => 'required',
+                'song_id' => 'required'
             ]);
 
             if (count($validator->errors()) > 0) {
                 return $validator->errors();
             }
 
-            DB::table('users')
-                ->where('id', $request->user_id)
+            DB::table('upload_details')
+                ->where('user_id', $request->user_id)
+                ->where('id', $request->song_id)
                 ->update(['is_selected' => $request->is_selected]);
-
-            if ($request->is_selected == 1) {   // selected
-                DB::table('upload_details')->insert([
-                    'user_id' => $request->user_id,
-                    'season_details_id' => $request->season_details_id,
-                    'created_at' => date("Y-m-d H:i:s"),
-                    'updated_at' => date("Y-m-d H:i:s")
-                ]);
-            }
-
-            if ($request->is_selected == 0) {   // not selected
-                
-            }
-            // DB::table('upload_details')->insert([
-            //     'user_id' => $request->user_id,
-            //     'season_details_id' => $request->season_details_id,
-            //     'created_at' => date("Y-m-d H:i:s"),
-            //     'updated_at' => date("Y-m-d H:i:s")
-            // ]);
 
             return 1;
 

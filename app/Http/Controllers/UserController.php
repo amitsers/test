@@ -205,7 +205,8 @@ class UserController extends Controller
             'user_id' => Auth::user()->id,
             'file_name' => $filename,
             'file_destination' => $this->user_destination,
-            'season_name' => $this->common->getSeasonName(),
+            'season_name' => $this->common->getCurrentSeasonDetails()[0]->name,
+            'season_id' => $this->common->getCurrentSeasonDetails()[0]->id,
             'status' => 1,
             'payment_status' => 0,
             'created_at' => date("Y-m-d H:i:s"),
@@ -282,9 +283,6 @@ class UserController extends Controller
                 $this->common->log('warning', $this->file_name, 'Payment Unsuccessfull - ' . __LINE__);
                 return Redirect::to('activity')->with('payment_message', 'Payment unsuccessfull');
             }
-            echo "<pre>";
-            print_r($result);
-            echo "</pre><br/><br/><br/>";
 
             if (isset($result->payment_request)
                 && isset($result->payment_request->payments)

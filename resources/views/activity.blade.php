@@ -222,9 +222,11 @@
 <!-- including js files -->
 @include('templates.footer')
 
+<script src="assets/track.js" type="text/javascript"></script>
 <script type="text/javascript">
 
   $(document).ready(function(){
+    track();
 
     var fields = ['name', 'email', 'mobile', 'street', 'state', 'pincode', 'country'];
     for(var a = 0; a < fields.length; a++) {

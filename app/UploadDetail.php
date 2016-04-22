@@ -15,4 +15,8 @@ class UploadDetail extends Model
     public function transaction() {
         return $this->hasOne('App\transaction', 'song_id');
     }
+
+    public function seasonDetail() {
+        return $this->belongsTo("App\SeasonDetail");
+    }
 }

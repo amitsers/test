@@ -10,8 +10,4 @@ class SelectedUser extends Model
     public function user() {
         return $this->belongsTo("App\User");
     }
-
-    public function seasonDetail() {
-        return $this->belongsTo("App\SeasonDetail");
-    }
 }

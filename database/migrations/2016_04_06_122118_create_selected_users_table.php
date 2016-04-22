@@ -16,8 +16,6 @@ class CreateSelectedUsersTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('season_details_id')->unsigned();
-            $table->foreign('season_details_id')->references('id')->on('season_details');
             $table->timestamps();
         });
     }

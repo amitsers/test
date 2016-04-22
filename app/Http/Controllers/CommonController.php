@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use DB;
 use Log;
+use App\UploadDetail;
 
 class CommonController
 {
@@ -38,6 +39,10 @@ class CommonController
 
     public function getSeasonName() {
         return 'SEASON_1';
+    }
+
+    public function getCurrentSeasonDetails() {
+        return DB::table('season_details')->where('status', 1)->get();
     }
 
     public function getPaymentLink() {

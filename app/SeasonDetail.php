@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SeasonDetail extends Model
 {
-	public function selectedUser() {
-        return $this->hasMany('App\SelectedUser', 'season_details_id');
+	public function uploadDetail() {
+        return $this->hasMany('App\UploadDetail', 'season_id');
     }
 }
