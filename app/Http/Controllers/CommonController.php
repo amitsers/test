@@ -37,12 +37,44 @@ class CommonController
         return false;
     }
 
+
     public function getSeasonName() {
         return 'SEASON_1';
     }
 
     public function getCurrentSeasonDetails() {
         return DB::table('season_details')->where('status', 1)->get();
+    }
+
+    public function getAdminDetails() {
+        return DB::table('admin_details')->where('status', 1)->get();
+    }
+
+    function getSeasonAndAdminDetails() {        
+        $season_details = $this->getCurrentSeasonDetails();
+        $admin_details = $this->getAdminDetails()[0];
+        $admin = array(
+            "id"=> $admin_details->id,
+            "name"=> $admin_details->name,
+            "mobile"=> $admin_details->mobile,
+            "watsapp"=> $admin_details->watsapp,
+            "email_one"=> $admin_details->email_one,
+            "email_two"=> $admin_details->email_two,
+            "site_name"=> $admin_details->site_name
+        );
+
+        $data = array(
+            "season_id" => $season_details[0]->id,
+            "season_name" => $season_details[0]->name,
+            "season_code" => $season_details[0]->code,
+            "season_round" => $season_details[0]->round,
+            "season_start_date" => $season_details[0]->start_date,
+            "season_end_date" => $season_details[0]->end_date,
+            "season_last_date" => $season_details[0]->last_date,
+            "admin" => $admin
+        );
+        
+        return $data;        
     }
 
     public function getPaymentLink() {

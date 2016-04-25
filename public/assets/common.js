@@ -173,8 +173,8 @@ function sendContactMsg() {
   }
 
   isError = false;
-
-  if (!isError) {
+  
+  if (isError) {
     $.ajax({
       url: 'send-contact-msg',
       type: 'POST',

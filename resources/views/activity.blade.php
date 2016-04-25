@@ -209,14 +209,9 @@
 
 
 <!-- Footer Starts -->
-<div class="footer text-center spacer">
-  <a href="#home" title="Online singing audition 2016">Home</a> | <a href="#rules" title="Online singing audition rules">Rules</a> | <a href="#register" title="Register for SEASION_NAME">Register</a> | <a href="" title="Singing audition dates">Other Audition Date</a>
-  <br/><br/>
-  Call / Watsapp: +91-8822455669<br/><br/>
-  Email: query@onlineaudition.xyz<br/><br/><br/>
-  Copyright 2015 onlineaudition.xyz All rights reserved.
-</div>
+  @include('templates.footer-details')
 <!-- # Footer Ends -->
+
 <a href="#home" class="gototop "><i class="glyphicon glyphicon-chevron-up"></i></a>
 
 <!-- including js files -->

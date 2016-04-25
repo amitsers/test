@@ -90,10 +90,14 @@ class UserController extends Controller
             $upload_details = UploadDetail::with('transaction')
                 ->where('user_id', Auth::user()->id)
                 ->get();
-            $data = array(
-                'name' => Auth::user()->name,
-                'upload_details' => $upload_details
-            );
+
+            $data = $this->common->getSeasonAndAdminDetails();
+            $data['name'] = Auth::user()->name;
+            $data['upload_details'] = $upload_details;
+            // $data = array(
+            //     'name' => Auth::user()->name,
+            //     'upload_details' => $upload_details
+            // );
 
             // Mail::send('activity', $data, function ($message) {
             //     $message->to('amit.sers@gmail.com')->subject('Learning Laravel test email');

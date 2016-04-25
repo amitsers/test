@@ -248,3 +248,8 @@ td.track-list {
 .sm-notice {
 	font-size: 10px;
 }
+
+.loader {
+    text-align: center;
+    margin: 0 auto;
+}

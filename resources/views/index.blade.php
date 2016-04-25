@@ -149,8 +149,6 @@
 <!-- works -->
 
 
-
-
 <!-- Cirlce Starts -->
 <div id="rules"  class="container spacer about">
 <h2 class="text-center wowload fadeInUp">Rules and Regulations</h2>  
@@ -334,6 +332,9 @@
       </div>
       <div class="modal-body contactform">
         <form>
+          <div class="loader">
+            <img src="images/loader.gif">
+          </div>
           <div class="form-group">
             <label for="recipient-name" class="control-label">Email:</label>
             <br/><span class="error login-email-error"></span>
@@ -364,14 +365,9 @@
 
 
 <!-- Footer Starts -->
-<div class="footer text-center spacer">
-  <a href="#home" title="Online singing audition 2016">Home</a> | <a href="#rules" title="Online singing audition rules">Rules</a> | <a href="#register" title="Register for {{{$season_name}}}">Register</a>
-  <br/><br/>
-  Call / Watsapp: +91-8822455669<br/><br/>
-  Email: query@onlineaudition.xyz<br/><br/><br/>
-  Copyright 2015 onlineaudition.xyz All rights reserved.
-</div>
+  @include('templates.footer-details')
 <!-- # Footer Ends -->
+
 <a href="#home" class="gototop "><i class="glyphicon glyphicon-chevron-up"></i></a>
 
 
@@ -413,9 +409,12 @@
 <script src="assets/script.js"></script>
 <script src="assets/constants.js"></script>
 <script src="assets/common.js"></script>
+<script src="assets/track.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-
+  $(document).ready(function(){
+    track();
+  });
 </script>
 
 </body>

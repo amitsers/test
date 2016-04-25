@@ -6,7 +6,7 @@ function track() {
         page: location.pathname.substring('/')
       },
       success: function(res) {
-                
+        
       }
     });
 
