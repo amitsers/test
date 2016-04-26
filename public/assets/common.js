@@ -1,4 +1,5 @@
 function doLogin() {
+  $('.loader').show();
   var errorClasses = ['login-email-error', 'login-password-error'];
   for (var c=0; c<errorClasses.length; c++) {
     $('.'+errorClasses[c]).hide();
@@ -12,19 +13,21 @@ function doLogin() {
         password: $('#login-password').val(),
         _token: $('#login_token').val(),
       },
-      success: function(res) {
-        console.log(res);
+      success: function(res) {        
         if (res.hasOwnProperty('email') && res.email[0]) {
+          $('.loader').hide();
           $('.login-email-error').show();
           $('.login-email-error').html(res.email[0]);
         }
 
         if (res.hasOwnProperty('password') && res.password[0]) {
+          $('.loader').hide();
           $('.login-password-error').show();
           $('.login-password-error').html(res.password[0]);
         }
 
         if (res.hasOwnProperty('isError') && res.hasOwnProperty('code') && res['code'] === 'LDGFLD') {
+          $('.loader').hide();
           $('.login-email-error').show();
           $('.login-email-error').html(error.loginFailed);
         }
@@ -61,6 +64,8 @@ function doLogin() {
 }
 
 function register() {
+  $('.register-thumb').hide();
+  $('.register-loader').show();
 	var errorClasses = ['name-error', 'email-error', 'age-error', 'password-error', 'confirm-password-error'];
 	for (var c=0; c<errorClasses.length; c++) {
 		$('.'+errorClasses[c]).hide();
@@ -82,24 +87,31 @@ function register() {
         password_confirmation: $('#confirmPassword').val(),
         _token: $('#_token').val()
       },
-      success: function(res) {
-        console.log(res);
+      success: function(res) {        
         if (res.hasOwnProperty('name') && res.name[0]) {
+          $('.register-loader').hide();
+          $('.register-thumb').show();
           $('.name-error').show();
           $('.name-error').html(res.name[0]);
         }
 
         if (res.hasOwnProperty('email') && res.email[0]) {
+          $('.register-loader').hide();
+          $('.register-thumb').show();
           $('.email-error').show();
           $('.email-error').html(res.email[0]);
         }
 
         if (res.hasOwnProperty('age') && res.age[0]) {
+          $('.register-loader').hide();
+          $('.register-thumb').show();
           $('.age-error').show();
           $('.age-error').html(res.age[0]);
         }
 
         if (res.hasOwnProperty('password') && res.password[0]) {
+          $('.register-loader').hide();
+          $('.register-thumb').show();
           $('.password-error').show();
           $('.password-error').html(res.password[0]);
         }
@@ -110,12 +122,17 @@ function register() {
         }
 
         if(res.hasOwnProperty('isError') && res.isError && res.code === 'EXST') {
+          $('.register-loader').hide();
+          $('.register-thumb').show();
           $('.email-error').show();
           $('.email-error').html(error.alreadyRegistered);
         }
       }
     });
-  }	
+  } else {
+    $('.register-loader').hide();
+    $('.register-thumb').show();
+  }
 	
 }
 

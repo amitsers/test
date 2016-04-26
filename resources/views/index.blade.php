@@ -154,13 +154,16 @@
 <h2 class="text-center wowload fadeInUp">Rules and Regulations</h2>  
   <div class="row">
   <div class="col-sm-12 wowload fadeInLeft">
+    <h4>Objective</h4>
+      We're organizing {{{$season_name}}} to encourage and offer a opportunity for young talented singers
     <h4>Steps to Enrol</h4>
     <p>
       <ul>
         <li>This is fully online based contest</li>
         <li>Just fill up the registration form and get enrolled</li>
-        <li>Upload a copy of your recording (Details given below)</li>
-        <li>Please provide the valid email and phone number</li>
+        <li>Upload a copy of your recording</li>
+        <li>We'll be mailing you the details after registration</li>
+        <li>Please provide valid email and phone number</li>
       </ul>
     </p>
 
@@ -274,7 +277,7 @@
           <span class="error confirm-password-error"></span>
           <input type="password" placeholder="Confirmation Password" id="confirmPassword" name="password_confirmation">
           <input type="hidden" name='_token' value="<?php echo csrf_token(); ?>" id='_token'>
-          <button class="btn btn-primary" onClick="register();"><i class="glyphicon glyphicon-thumbs-up"></i> Register</button>
+          <button class="btn btn-primary" onClick="register();"><i class="glyphicon glyphicon-thumbs-up register-thumb"></i> <img class="register-loader" src="images/loader.gif"> Register</button>
         </div>
     </div>
   @endif

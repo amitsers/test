@@ -64,7 +64,7 @@
       <h4 class="wowload fadeInUp">Your Recent Activity: </h4> {{Session::get('payment_message')}}
       <form action="{{URL::to('upload-song')}}" method="post" enctype="multipart/form-data">
         <div class="form-group">
-          <label for="track" class="control-label">Upload Audio Track:</label>          
+          <label for="track" class="control-label">Upload Audio Track:</label>
           <span class="error upload-error">
             <?php
               if (isset($errors)) {

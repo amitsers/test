@@ -249,7 +249,12 @@ td.track-list {
 	font-size: 10px;
 }
 
-.loader {
+.loader, .register-loader {
     text-align: center;
     margin: 0 auto;
+    display: none;
+}
+
+.register-loader {
+	width: 20px;
 }
