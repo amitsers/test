@@ -3006,4 +3006,15 @@ input.button.btn-red {
 
 .mailchimp-widget .mc-subscribe-form .mc-email {
   border: 1px solid #928B8B !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+span.mobileError {
+    color: red;
+    font-size: 14px;
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+    background: #d91f26;
+    border: 0;
 }

@@ -192,13 +192,14 @@
               <div class="col-md-4 col-sm-6">
                 <div class="widget mailchimp-widget">
                   <h4 class="widget-title">Number <span>Please</span></h4>
-                  <form class="mc-subscribe-form">
+                  <form class="mc-subscribe-form" onSubmit="return saveContact()">
                     <label>Please mention your mobile number here. Our team will contact you. We'll not spam your inbox.</label>
                     <div class="input-mail">
-                      <input type="email" name="mc_email" class="mc-email" value="" placeholder="Enter your number here..."/>
+                      <input type="text" name="mc_email" id="mobileNo" class="mc-email" value="" placeholder="Enter your number here..."/>
+                      <span class="mobileError"></span>
                       <i class="fa fa-envelope-o icon-mc-email"></i>
                     </div>
-                    <button disabled>Send now</button>
+                    <input type="submit" name="sendMob" value="Send now"/>
                   </form>
                 </div>
               </div>
@@ -249,7 +250,32 @@
     <script type='text/javascript' src='js/owl.carousel.min.js'></script>
 
     <script type="text/javascript">
-            var $height_w   = jQuery(window).height();
+          var $height_w   = jQuery(window).height();
+          function saveContact() {
+            if(!$('#mobileNo').val()) {
+              $('.mobileError').html('Please enter your mobile number');
+              return false;
+            }
+            if($('#mobileNo').val().length != 10){
+              $('.mobileError').html('Please enter a valid number');
+              return false;
+            }
+            return false;
+            $.ajax({
+              url: 'save-contact.php',
+              type: 'POST',
+              data: {
+                mobile_no: $('#mobileNo').val()
+              },
+              success: function(res) {
+                $('.mobileError').html('Thanks we will contact you soon');
+              }
+            });  
+            
+            return false;
+          }
+          
+
           jQuery('.noo-countdown').css('height',$height_w+'px');
           jQuery(window).resize(function(){
                 var $height_w = jQuery(window).height();
