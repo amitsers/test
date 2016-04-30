@@ -5,7 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <link rel="shortcut icon" href="images/favicon.png"/>
-    <title>Home | WeMusic - Music Band Event</title>
+    <title>Online Singing Audition | 2016</title>
+	<meta name="keywords" content="Online Audition, Singing Contest, Sing online, Audition">
+    <meta name="description" content="First online based singing contest WebUnplugged">
 
     <link rel='stylesheet' href='css/bootstrap.min.css' type='text/css' media='all'/>
     <link rel='stylesheet' href='css/settings.css' type='text/css' media='all'/>
@@ -76,10 +78,10 @@
               <div class="col-sm-12">
                 <div class="noo-countdown">
                   <ul class="full-background">
-                    <li style="background-image: url('images/blog/blog14.jpg')"></li>
-                    <li style="background-image: url('images/blog/blog12.jpg')"></li>
+                    <li style="background-image: url('images/blog/blog2.jpg')"></li>
                     <li style="background-image: url('images/blog/blog7.jpg')"></li>
-                    <li style="background-image: url('images/blog/blog10.jpg')"></li>
+                    <li style="background-image: url('images/blog/blog5.jpg')"></li>
+                    <li style="background-image: url('images/blog/blog6.jpg')"></li>
                   </ul>
                   <div class="overlay_parallax"></div>
                   <div class="noo-countdown-content">
@@ -92,20 +94,20 @@
                         <span class="countdown-row countdown-show4">
                           <span class="countdown-section">
                             <span class="countdown-amount">15th</span>
-                            <span class="countdown-period">Days</span>
+                            <span class="countdown-period">--</span>
                           </span>
                           <span class="countdown-section">
                             <span class="countdown-amount">May</span>
-                            <span class="countdown-period">Hours</span>
+                            <span class="countdown-period">--</span>
                           </span>
                           <span class="countdown-section">
                             <span class="countdown-amount">2016</span>
-                            <span class="countdown-period">Seconds</span>
+                            <span class="countdown-period">--</span>
                           </span>
                         </span>
                       </div>
                       <div class="noo-countdown-footer register-now">
-                        <a href="#" data-text="discover now"><span>Spot Now</span></a>
+                        <a href="#" data-text="discover now"><span>Discover</span></a>
                       </div>
                     </div>
                   </div>
@@ -125,7 +127,7 @@
                       About <span>Contest</span>
                     </h2>
                     <p class="sh-ds">
-                      We're organizing {{{$season_name}}} to encourage and offer a opportunity for young talented singers. This is fully online based contest. Participants can upload their audio track after registration. Online registration will open from 15th April, 2016. Participants need to pay Rs.100 only as registration fee.
+                      We're organizing {{{$season_name}}} to encourage and offer a opportunity for young talented singers. This is fully online based contest. Participants can upload their audio clip after registration. Online registration will open from 15th April, 2016. Participants need to pay Rs.100 only as registration fee.
                     </p>                    
                   </div>
                 </div>
@@ -134,7 +136,7 @@
           </div>
         </div>
       </div>
-      <footer class="colophon site-info">
+      <footer class="colophon site-info come-to-footer">
         <div class="colophon wigetized">
           <div class="background-footer"></div>
           <div class="container">
@@ -260,7 +262,6 @@
               $('.mobileError').html('Please enter a valid number');
               return false;
             }
-            return false;
             $.ajax({
               url: 'save-contact.php',
               type: 'POST',
@@ -270,7 +271,7 @@
               success: function(res) {
                 $('.mobileError').html('Thanks we will contact you soon');
               }
-            });  
+            });
             
             return false;
           }
@@ -284,7 +285,7 @@
             jQuery(function () {
               $('body').on('click', '.register-now', function() {
               $("html, body").animate({
-                  scrollTop: $('#customer_login').outerHeight()
+                  scrollTop: $('.come-to-footer').outerHeight()
               }, 800);
               return false;
           });
