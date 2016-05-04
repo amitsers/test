@@ -1,424 +1,455 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-
-	<title>Online Singing Audition - 2016</title>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <link rel="stylesheet" href="{{ URL::asset('http://fonts.googleapis.com/css?family=Roboto:400,300,700') }}" type="text/css">
-
-    <link rel="stylesheet" href="{{ URL::asset('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ URL::asset('assets/bootstrap/css/bootstrap.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ URL::asset('assets/animate/animate.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ URL::asset('assets/animate/set.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ URL::asset('assets/gallery/blueimp-gallery.min.css') }}" type="text/css">
-    
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <link rel="shortcut icon" href="{{{ asset('images/favicon.ico') }}}">
     <link rel="icon" href="{{{ asset('images/favicon.ico') }}}">
 
-    <link rel="stylesheet" href="{{ URL::asset('assets/style.css') }}" type="text/css">
+    <title>Testing</title>
+	<meta name="keywords" content="Online Audition, Singing Contest, Sing online, Audition">
+    <meta name="description" content="First online based singing contest WebUnplugged">
 
-</head>
-<body>
+    <link rel='stylesheet' href='assets/css/bootstrap.min.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='assets/css/settings.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='assets/css/widget-calendar-full.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='assets/css/style.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='assets/css/commerce.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='assets/css/font-awesome.min.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='assets/css/jquery.mb.YTPlayer.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='assets/css/owl.carousel.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='assets/css/owl.theme.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='assets/css/nivo-lightbox.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='assets/css/nivo-default.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='assets/css/mediaelementplayer.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='assets/css/layout.css' type='text/css' media='all'/>
 
-	<div class="topbar animated fadeInLeftBig"></div>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Dosis:100,300,400,700,900,300italic,400italic,700italic,900italic' type='text/css' media='all'/>
 
-<!-- Header Starts -->
-<div class="navbar-wrapper">
-      <div class="container">
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-nav">
-          <div class="container">
-            <div class="navbar-header">
-              <!-- Logo Starts -->
-              <!-- <a class="navbar-brand" href="#home"><img src="images/logo.png" alt="logo"></a> -->
-              <!-- #Logo Ends -->
-
-
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-            </div>
-
-
-            <!-- Nav Starts -->
-            <div class="navbar-collapse  collapse">
-              <ul class="nav navbar-nav navbar-right">
-                <li class="scroll"><a href="#home">Home</a></li>
-                <li class="scroll"><a href="#rules">Rules</a></li>
-                <li class="scroll"><a href="#contact">Contact</a></li>
-                @if (!isset($user_name))
-                  <li class="scroll"><a href="#register">Register</a></li>
-                  <li ><a href="#" data-toggle="modal" data-target="#exampleModal">Login</a></li>
-                @endif
-
-                @if (isset($user_name))
-                  <li class="dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown">{{{$user_name}}}<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="activity">Activity</a></li>
-                    <li class="divider"></li>
-                    <li><a href="logout">Logout</a></li>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="assets/js/html5shiv.min.js"></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+  </head>
+  <body class="page-menu-transparent">
+    <!--preloader-->
+        <div id="loading">
+      <div id="loading-center">
+        <div id="loading-center-absolute">
+          <div class="object"></div>
+          <div class="object"></div>
+          <div class="object"></div>
+          <div class="object"></div>
+          <div class="object"></div>
+          <div class="object"></div>
+          <div class="object"></div>
+          <div class="object"></div>
+          <div class="object"></div>
+          <div class="object"></div>
+        </div>
+      </div> 
+    </div>
+        <!--end preloader-->
+    <div class="site">
+      <header class="noo-header" id="noo-header">
+        <div class="navbar-wrapper">
+          <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+              <div class="navbar-header">
+                <h1 class="sr-only">Home</h1>
+                <a class="navbar-toggle collapsed" data-toggle="collapse" data-target=".noo-navbar-collapse">
+                  <span class="sr-only">Navigation</span>
+                  <i class="fa fa-bars"></i>
+                </a>
+                <a href="./" class="navbar-brand">
+                  <img class="noo-logo-img noo-logo-normal" src="images/logo.png" alt="">
+                  <img class="noo-logo-img noo-logo-floating" src="images/logo.png" alt="">
+                </a>
+              </div>  
+              <nav class="collapse navbar-collapse noo-navbar-collapse">
+                <ul class="navbar-nav sf-menu">
+                  <li class="current-menu-item">
+                    <a href="./">Home</a>
+                  </li>                  
+                  <li><a href="#">Contact</a></li>
+                  @if (!isset($user_name))
+                    <li><a href="#register-now">Register</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#exampleModal">Login</a></li>
+                  @endif
+                  @if (isset($user_name))
+                    <li class="menu-item-has-children">
+                      <a href="blog.html">{{{$user_name}}}</a>
+                      <ul class="sub-menu">
+                        <li><a href="activity">Activity</a></li>
+                        <li><a href="logout">Logout</a></li>
+                      </ul>
+                    </li>
+                  @endif
+                </ul>
+              </nav>  
+            </div>  
+          </div>  
+        </div>
+      </header>
+      <div class="container-wrap">
+        <div class="main-content container-fullwidth">
+          <div class="row row-fluid">
+            <div class="nocontainer">
+              <div class="col-sm-12">
+                <div class="noo-countdown">
+                  <ul class="full-background">
+                    <li style="background-image: url('images/blog/blog2.jpg')"></li>
+                    <li style="background-image: url('images/blog/blog7.jpg')"></li>
+                    <li style="background-image: url('images/blog/blog5.jpg')"></li>
+                    <li style="background-image: url('images/blog/blog6.jpg')"></li>
                   </ul>
-                 </li>
-                @endif
-                 
-              </ul>
+                  <div class="overlay_parallax"></div>
+                  <div class="noo-countdown-content">
+                    <div class="container">
+                      <h2>INDIA'S FIRST ONLINE SINGING CONTEST IS READY NOW!</h2>
+                      <p>We are ready to start and waiting for your performance.</p>
+                      <p>Audition will start from</p>
+                      <!-- <div id="defaultCountdown"></div> -->
+                      <div id="defaultCountdown" class="is-countdown">
+                        <span class="countdown-row countdown-show4">
+                          <span class="countdown-section">
+                            <span class="countdown-amount">15th</span>
+                            <span class="countdown-period">--</span>
+                          </span>
+                          <span class="countdown-section">
+                            <span class="countdown-amount">May</span>
+                            <span class="countdown-period">--</span>
+                          </span>
+                          <span class="countdown-section">
+                            <span class="countdown-amount">2016</span>
+                            <span class="countdown-period">--</span>
+                          </span>
+                        </span>
+                      </div>
+                      <div class="noo-countdown-footer register-now">
+                        <a href="#" data-text="discover now"><span>Discover</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <!-- #Nav Ends -->
+          </div>
 
+          @if (!isset($user_name))
+            <div class="row parallax row-fluid home-upcoming-event">
+              <div class="overlay_parallax"></div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="noo-shortcode-events">
+
+                      <a name="register-now"></a>
+                      <div class="noo-main col-md-12">
+                        <div class="commerce">
+                          <div class="col2-set" id="customer_login">
+                            <h2>Register</h2>
+                            <!-- <form action="" class="register" method="POST" onSubmit="return doRegister()"> -->
+                              <div class="form-row">
+                                <label for="reg_email">
+                                  Name <span class="required">*</span>
+                                </label>
+                                <span class="error name-error"></span>
+                                <input type="text" class="input-text" name="name" id="name" value=""/>                              
+                              </div>
+
+                              <div class="form-row">
+                                <label for="reg_email">
+                                  Email address <span class="required">*</span>
+                                </label>
+                                <span class="error email-error"></span>
+                                <input type="text" class="input-text" name="email" id="email" value=""/>                              
+                              </div>
+
+                              <div class="form-row">
+                                <label for="reg_email">
+                                  Age <span class="required">*</span>
+                                </label>
+                                <span class="error age-error"></span>
+                                <input type="text" class="input-text" name="age" id="age" value=""/>                              
+                              </div>
+
+                              <div class="form-row">
+                                <label for="reg_email">
+                                  Mobile Number <span class="required">*</span>
+                                </label>
+                                <span class="error mobile-error"></span>
+                                <input type="text" class="input-text" name="mobile" id="mobile" value=""/>                              
+                              </div>
+
+                              <div class="form-row">
+                                <label for="reg_password">
+                                  Password <span class="required">*</span>
+                                </label>
+                                <span class="error password-error"></span>
+                                <input type="password" class="input-text" name="password" id="password"/>                              
+                              </div>
+
+                              <div class="form-row">
+                                <label for="reg_password">
+                                  Confirm Password <span class="required">*</span>
+                                </label>
+                                <span class="error confirm-password-error"></span>
+                                <input type="password" class="input-text" name="password_confirmation" id="confirmPassword"/>                              
+                              </div>
+
+                              <input type="hidden" name='_token' value="<?php echo csrf_token(); ?>" id='_token'>
+
+                              <div class="form-row">
+                                <span class="error register-error"></span>
+                                <br/>
+                                <button class="button btn-red" onClick="doRegister();">Register</button>
+                                <!-- <input type="submit" class="button btn-red" name="register" value="Register"/> -->
+                              </div>
+                            <!-- </form> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          @endif
+
+          <div class="row parallax row-fluid home-upcoming-event">
+            <div class="overlay_parallax"></div>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="noo-shortcode-events">
+                    <a name="upcoming"></a>
+                    <h2 class="sh-event-title">
+                      About <span>Contest</span>
+                    </h2>
+                    <p class="sh-ds">
+                      We're organizing {{{$season_name}}} to encourage and offer a opportunity for young talented singers. This is fully online based contest. Participants can upload their audio clip after registration. Online registration will open from 15th April, 2016. Participants need to pay Rs.100 only as registration fee.
+                    </p>                    
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
-    </div>
-<!-- #Header Starts -->
-
-
-
-
-
-
-
-<!-- works -->
-<div id="home"  class=" clearfix grid"> 
-    <figure class="effect-oscar  wowload fadeIn">
-        <img src="images/portfolio/1.jpg" alt="img01"/>
-        <figcaption>
-            <h2>Event</h2>            
-            <p>@if (isset($season_name)) {{{$season_name}}} @endif  is India's first online based singing contest<br/>
-              Just send us your audio and Get Noticed</p>    
-            <!-- <a href="images/portfolio/1.jpg" title="1" data-gallery>View more</a></p>             -->
-        </figcaption>
-    </figure>
-     <figure class="effect-oscar  wowload fadeInUp">
-        <img src="images/portfolio/2.jpg" alt="img01"/>
-        <figcaption>
-            <h2>Rules</h2>
-            <p>There will be two online round. All the Rules and regulations are mentioned below.<br/>
-            <a href="#rules">View More</a></p>        
-        </figcaption>
-    </figure>
-     <figure class="effect-oscar  wowload fadeInUp">
-        <img src="images/portfolio/3.jpg" alt="img01"/>
-        <figcaption>
-            <h2>Dates</h2>
-            <p>Audition Start Date: @if(isset($season_start_date)) {{{$season_start_date}}} @endif<br/>
-              Audition End Date: @if(isset($season_start_date)) {{{$season_end_date}}} @endif<br/>  
-              <a href="#imp_dates">View More</a></p>       
-        </figcaption>
-    </figure>
-     <figure class="effect-oscar  wowload fadeInUp">
-        <img src="images/portfolio/4.jpg" alt="img01"/>
-        <figcaption>
-            <h2>Contact Us</h2>
-            <p>Please feel free to contact us for any queries<br>
-            Watsapp: CONTACT_NO<br/>
-            <a href="contact" title="1">View more</a></p>
-        </figcaption> 
-    </figure>
-     <figure class="effect-oscar  wowload fadeInUp">
-        <img src="images/portfolio/5.jpg" alt="img01"/>
-        <figcaption>
-            <h2>Other Auditions</h2>
-            <p>Here you will get audition dates of other well known contests too<br>
-            <a href="#" title="1">View more</a></p>            
-        </figcaption>
-    </figure>
-     
-     <figure class="effect-oscar  wowload fadeInUp">
-        <img src="images/portfolio/6.jpg" alt="img01"/>
-        <figcaption>
-            <h2>Register</h2>
-            <p>Register and send us your recorded audio<br>
-              Please read the rules and regulations carefully<br/>
-            <a href="#register" title="1">View more</a></p>            
-        </figcaption>
-    </figure>     
-</div>
-<!-- works -->
-
-
-<!-- Cirlce Starts -->
-<div id="rules"  class="container spacer about">
-<h2 class="text-center wowload fadeInUp">Rules and Regulations</h2>  
-  <div class="row">
-  <div class="col-sm-12 wowload fadeInLeft">
-    <h4>Objective</h4>
-      We're organizing {{{$season_name}}} to encourage and offer a opportunity for young talented singers
-    <h4>Steps to Enrol</h4>
-    <p>
-      <ul>
-        <li>This is fully online based contest</li>
-        <li>Just fill up the registration form and get enrolled</li>
-        <li>Upload a copy of your recording</li>
-        <li>We'll be mailing you the details after registration</li>
-        <li>Please provide valid email and phone number</li>
-      </ul>
-    </p>
-
-    <a id="rules-prelim"></a>
-    <h4>Preliminary Round:</h4>
-    <p>
-      <ul>
-        <li>Age limit 30 years (In case of any issues, the participant may be asked to show his/her age proof)</li>
-      <li>Any body from any corner of the world can participate</li>
-      <li>The registrations / contest are to be done online (only)</li>
-      <li>Participants can sing a song in any of the Indian languages</li>
-      <li>Song can be a movie/album song or self composition</li>
-      <li>Any one can submit any number of songs, this will be considered as separate entries. And for each submission he/she have to pay the enrolment fee of SEASON_FEE separately (Non-refundable)</li>
-      <li>The maximum duration of the rendition should not exceed 6 minutes.</li>
-      <li>Acceptable file format: mp3, wma, wav, amr only</li>
-      <li>Short listed candidates will be communicated by phone or by email for the finale</li>
-      <li>Selection of candidate will be done based on:
-        <ol type="i">
-          <li>Quality of voice  10</li>
-          <li>Range of voice  10</li>
-          <li>Singing in pitch  10</li>
-          <li>Singing in tune 10</li>
-          <li>Maintaining Rhythm  10</li>
-          <li>Pronunciation of lyrics 10</li>
-          <li>Mood and Expression 10</li>
-          <li>Breath control  10</li>
-          <li>Creativity - Improvisation  10</li>
-          <li>Overall impact – winning component  10</li>
-          <li>Selection of suitable song for voice 10</li>
-        </ol>
-      </li>
-      </ul>
-    </p>
-
-    <h4>Final Round</h4>
-    <p>
-      <ul>
-        <li>We will select top 10 contestants from Audition Round</li>
-        <li>Top 10 candidates have to again submit one more recorded audio track for final round (No need to pay the fee again)</li>
-        <li>If participant wants, he/she use the previous track(Just let us know)</li>
-        <li>We are going to upload your tracks in our website and as well as in our facebook page</li>
-        <li>Finalist and Runner up will get selected based on above 11 criteria + voting</li>
-        <li>Below mentioned parameters will be considered as voting system:</li>
-          <ol type="i">
-            <li>Number of likes out of 100 facebook likes</li>
-            <li>100% out of 10 facebook shares</li>
-            <li>100% out of 20 facebook positive comments. (e.g.: comments like 'keep it up', 'good', 'thumbs up symbol', 'great' etc... Negative comments are not going to influence our judges)</li>
-            <li>40% from our website song listeners</li>
-          </ol>
-        <li>Top 2 participant will get cash prize</li>
-      </ul>
-    </p>
-
-    <h4>Important Note:</h4>
-    <p>
-      <ul>        
-        <li>Judges decision will be final.</li>
-        <li>The organizing committee reserves the right to change rules and to change or extend Audition/Finale dates, if desired.</li>
-        <li>We will keep audio tracks of top 10 contestants in our website. This will help the contestant to GET NOTICED in world.</li>
-        <li>Prize amount of {{{$season_name}}} is not decided yet. We'll publish here soon.</li>
-        <li>If the contest gets cancelled due to any reason then our organisation will refund the full amount paid by the participant.</li>
-        <li>For any doubts / queries you can <a href="#contact">reach to</a> us any time.</li>
-      </ul>
-    </p>
-
-    <a id="imp_dates"></a>
-    <h4>Important Dates:</h4>
-    <p>
-      <ul>
-        <li>Audition Start Date: 3rd January, 2016</li>
-        <li>Audition End Date: 3rd February, 2016</li>
-        <li>Audition Results: 15th February, 2016</li>
-      </ul>    
-    </p>
-  </div>
-  </div>
-</div>
-<!-- #Cirlce Ends -->
-
-
-
-<!-- About Starts -->
-<div class="highlight-info">
-<div class="overlay spacer">
-<div class="container">
-<div class="row text-center  wowload fadeInDownBig">
-  <div class="col-sm-12 col-xs-12">
-    <h4>Be the winner of India's first online singing contest</h4>
-  </div>
-</div>
-</div>
-</div>
-</div>
-<!-- About Ends -->
-
-
-<div id="register"  class="container spacer">
-<div class="container contactform center">
-  @if (!isset($user_name))
-    <h2 class="text-center  wowload fadeInUp">Register for {{{$season_name}}}</h2>
-    <div class="row wowload fadeInLeftBig">      
-        <div class="col-sm-6 col-sm-offset-3 col-xs-12">      
-          <span class="error name-error"></span>
-          <input type="text" placeholder="Name" id="name" name="name">   
-          <span class="error email-error"></span>     
-          <input type="text" placeholder="Email" id="email" name="email">
-          <span class="error age-error"></span>
-          <input type="text" placeholder="Age" id="age" name="age">
-          <span class="error password-error"></span>
-          <input type="password" placeholder="Password" id="password" name="password">
-          <span class="error confirm-password-error"></span>
-          <input type="password" placeholder="Confirmation Password" id="confirmPassword" name="password_confirmation">
-          <input type="hidden" name='_token' value="<?php echo csrf_token(); ?>" id='_token'>
-          <button class="btn btn-primary" onClick="register();"><i class="glyphicon glyphicon-thumbs-up register-thumb"></i> <img class="register-loader" src="images/loader.gif"> Register</button>
+      <footer class="colophon site-info come-to-footer">
+        <div class="colophon wigetized">
+          <div class="background-footer"></div>
+          <div class="container">
+            <div class="row noo-footer-main">
+              <div class="col-md-4 col-sm-6">
+                <div class="widget widget_text">
+                  <h4 class="widget-title">Other <span>Details</span></h4>
+                  <div class="textwidget">
+                    <p>
+                      Please feel free to reach us for any type of queries. Like our facebook page for more updates.
+                    </p>
+                    <p>
+                      
+                    </p>
+                  </div>
+                </div>
+              </div>  
+              <div class="col-md-4 col-sm-6">
+                <div class="widget tribe-events-adv-list-widget">
+                  <h4 class="widget-title">Important <span>Dates</span></h4>
+                  <div class="tribe-mini-calendar-event">
+                    <div class="list-date">
+                      <span class="list-dayname">--</span>
+                      <span class="list-daynumber">-</span>
+                    </div>
+                    <div class="list-info">
+                      <h2 class="entry-title summary">
+                        Audition Start Date
+                      </h2>
+                      <div class="duration">
+                        <span class="date-start dtstart">@if(isset($season_start_date)) {{{$season_start_date}}} @endif</span>
+                       <!--  -
+                        <span class="date-end dtend">October 31-10:00 pm</span> -->
+                      </div>
+                    </div>  
+                  </div>
+                  <div class="tribe-mini-calendar-event">
+                    <div class="list-date">
+                      <span class="list-dayname">--</span>
+                      <span class="list-daynumber">-</span>
+                    </div>
+                    <div class="list-info">
+                      <h2 class="entry-title summary">
+                        Audition End Date
+                      </h2>
+                      <div class="duration">
+                        <span class="date-start dtstart">@if(isset($season_end_date)) {{{$season_end_date}}} @endif</span>
+                        <!-- -
+                        <span class="date-end dtend">October 31-10:30 pm</span> -->
+                      </div>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="widget mailchimp-widget">
+                  <h4 class="widget-title">Number <span>Please</span></h4>
+                  <form class="mc-subscribe-form" onSubmit="return saveContact()">
+                    <label>Please mention your mobile number here. Our team will contact you. We'll not spam your inbox.</label>
+                    <div class="input-mail">
+                      <input type="text" name="mc_email" id="mobileNo" class="mc-email" value="" placeholder="Enter your number here..."/>
+                      <span class="mobileError"></span>
+                      <i class="fa fa-envelope-o icon-mc-email"></i>
+                    </div>
+                    <input type="submit" name="sendMob" value="Send now"/>
+                  </form>
+                </div>
+              </div>
+            </div>  
+            <div class="noo-footer-bottom">
+              <div class="widget widget_noo_infomation">
+                <ul class="noo-infomation">
+                  <li>
+                    <a href="http://fb.com">
+                      <span class="fa fa-facebook infomation-left"></span>
+                      <address>Follow us on facebook</address>
+                    </a>
+                  </li>
+                  <li class="info-phone">
+                    <span class="fa fa-whatsapp infomation-left"></span> OR
+                    <span class="fa fa-phone infomation-left"></span>
+                    <span>+91 123 456 789</span>
+                  </li>
+                  <li class="info-mail">
+                    <span class="fa fa-envelope-o infomation-left"></span>
+                    <span><a href="mailto:admin@onlineaudition.xyz">admin@onlineaudition.xyz</a></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>  
+        </div>  
+      </footer>  
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="exampleModalLabel">Login</h4>
+            </div>
+            <div class="modal-body contactform">
+              <form>
+                <div class="loader">
+                  <img src="images/loader.gif">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="control-label">Email:</label>
+                  <br/><span class="error login-email-error"></span>
+                  <input type="text" class="form-control text-box-popup" id="login-email" name="login_email">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="control-label">Password:</label>
+                  <br/><span class="error login-password-error"></span>
+                  <input type="password" class="form-control text-box-popup" id="login-password" name="login_password">
+                </div>
+                <input type="hidden" name='_token' value="<?php echo csrf_token(); ?>" id='login_token'>
+              </form>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <button type="button" class="btn btn-primary btn-size" onClick="doLogin()">Login</button>
+                  </div>
+                  <div class="col-sm-6">
+                    <button type="button" class="btn btn-default btn-size" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+            </div>
+          </div>
         </div>
-    </div>
-  @endif
-  <div class="process">
-    <h3 class="text-center wowload fadeInUp">What you need to do ?</h3>
-    <ul class="row text-center list-inline  wowload bounceInUp">
-      <li id="process-line">
-            <span><b>Register</b></span>
-        </li>
-        <li id="process-line">
-            <span><b>Upload a Song</b></span>
-        </li>      
-        <li id="process-line">
-            <span><b>& Become a Winner</b></span>
-        </li>
-    </ul>
-  </div>
-
-
-</div>
-</div>
-
-
-<!--Contact Starts-->
-<div id="contact" class="spacer">
-
-<div class="container contactform center">
-<h2 class="text-center  wowload fadeInUp">Get in touch for any queries</h2>
-  <div class="row wowload fadeInLeftBig">      
-      <div class="col-sm-6 col-sm-offset-3 col-xs-12">      
-        <span class="error contact-us-name-error"></span>
-        <input type="text" placeholder="Name" id="contactUsName" name="contact_us_name">
-        <span class="error contact-us-email-error"></span>
-        <input type="text" placeholder="Email" id="contactUsEmail" name="contact_us_email">
-        <span class="error contact-us-message-error"></span>
-        <textarea rows="5" placeholder="Message" id="contactUsMessage" name="contact_us_message"></textarea>
-        <button class="btn btn-primary" name="contact_us_btn" onClick="sendContactMsg()"><i class="glyphicon glyphicon-send"></i> Send</button>
-      </div>
-  </div>
-
-
-
-</div>
-</div>
-<!--Contact Ends-->
-
-
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Login</h4>
-      </div>
-      <div class="modal-body contactform">
-        <form>
-          <div class="loader">
-            <img src="images/loader.gif">
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="control-label">Email:</label>
-            <br/><span class="error login-email-error"></span>
-            <input type="text" class="form-control" id="login-email" name="login_email">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="control-label">Password:</label>
-            <br/><span class="error login-password-error"></span>
-            <input type="password" class="form-control" id="login-password" name="login_password">
-          </div>
-          <input type="hidden" name='_token' value="<?php echo csrf_token(); ?>" id='login_token'>
-        </form>
-      </div>
-      <div class="modal-footer">
-          <div class="row">
-            <div class="col-sm-6">
-              <button type="button" class="btn btn-primary" onClick="doLogin()">Login</button>
-            </div>
-            <div class="col-sm-6">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
       </div>
     </div>
-  </div>
-</div>
 
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.11.3.min.js'></script>
+    <script type='text/javascript' src='assets/js/common.js'></script>
+    <script type='text/javascript' src='assets/js/constants.js'></script>
+    <script type='text/javascript' src='assets/js/track.js'></script>
+    <script type='text/javascript' src='assets/js/jquery-migrate.min.js'></script>
+    <script type='text/javascript' src='assets/js/jquery.themepunch.tools.min.js'></script>
+    <script type='text/javascript' src='assets/js/jquery.themepunch.revolution.min.js'></script>
+    <script type='text/javascript' src='assets/js/modernizr-2.7.1.min.js'></script>
+    <script type='text/javascript' src='assets/js/imagesloaded.pkgd.min.js'></script>
+    <script type='text/javascript' src='assets/js/jquery.carouFredSel-6.2.1.js'></script>
+    <script type='text/javascript' src='assets/js/jquery.touchSwipe.min.js'></script>
+    <script type='text/javascript' src='assets/js/bootstrap.min.js'></script>
+    <script type='text/javascript' src='assets/js/hoverIntent-r7.min.js'></script>
+    <script type='text/javascript' src='assets/js/superfish-1.7.4.min.js'></script>
+    <script type='text/javascript' src='assets/js/main.js'></script>
+    <script type='text/javascript' src='assets/js/mediaelement-and-player.js'></script>
+    <script type='text/javascript' src='assets/js/player.js'></script>
+    <script type='text/javascript' src='assets/js/jquery.plugin.min.js'></script>
+    <script type='text/javascript' src='assets/js/jquery.countdown.min.js'></script> 
+    <script type='text/javascript' src='assets/js/jquery.parallax.js'></script>
+    <script type='text/javascript' src='assets/js/owl.carousel.min.js'></script>
 
+    <script type="text/javascript">
+          var $height_w   = jQuery(window).height();
+          function saveContact() {
+            if(!$('#mobileNo').val()) {
+              $('.mobileError').html('Please enter your mobile number');
+              return false;
+            }
+            if($('#mobileNo').val().length != 10){
+              $('.mobileError').html('Please enter a valid number');
+              return false;
+            }
+            $.ajax({
+              url: 'save-contact.php',
+              type: 'POST',
+              data: {
+                mobile_no: $('#mobileNo').val()
+              },
+              success: function(res) {
+                $('.mobileError').html('Thanks we will contact you soon');
+              }
+            });
+            
+            return false;
+          }
+          
 
-<!-- Footer Starts -->
-  @include('templates.footer-details')
-<!-- # Footer Ends -->
+          jQuery('.noo-countdown').css('height',$height_w+'px');
+          jQuery(window).resize(function(){
+                var $height_w = jQuery(window).height();
+                jQuery('.noo-countdown').css('height',$height_w+'px');
+          });
+          
+          jQuery(function () {
+            track();
+            $('body').on('click', '.register-now', function() {
+            $("html, body").animate({
+                scrollTop: $('.come-to-footer').outerHeight()
+            }, 800);
+            return false;
+          });
 
-<a href="#home" class="gototop "><i class="glyphicon glyphicon-chevron-up"></i></a>
+                jQuery('.full-background li:first-child').show();
+                var myVar = '';
+                clearInterval(myVar);
+                myVar = setInterval(function(){
+                    jQuery('.full-background li:first-child').fadeOut(1200).next('li').fadeIn(1200).end().appendTo('.full-background');
+                },3500);
+              
+                                  
+              austDay = new Date(2016, 5 - 1,  31);
+              // jQuery('#defaultCountdown').countdown({until: austDay});
+              jQuery('#year').text(austDay.getFullYear());
+            });
 
-
-
-
-
-<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
-<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
-    <!-- The container for the modal slides -->
-    <div class="slides"></div>
-    <!-- Controls for the borderless lightbox -->
-    <h3 class="title">Title</h3>
-    <a class="prev">‹</a>
-    <a class="next">›</a>
-    <a class="close">×</a>
-    <!-- The modal dialog, which will be used to wrap the lightbox content -->    
-</div>
-
-
-
-<!-- jquery -->
-<script src="assets/jquery.js"></script>
-
-<!-- wow script -->
-<script src="assets/wow/wow.min.js"></script>
-
-
-<!-- boostrap -->
-<script src="assets/bootstrap/js/bootstrap.js" type="text/javascript" ></script>
-
-<!-- jquery mobile -->
-<script src="assets/mobile/touchSwipe.min.js"></script>
-<script src="assets/respond/respond.js"></script>
-
-<!-- gallery -->
-<script src="assets/gallery/jquery.blueimp-gallery.min.js"></script>
-
-<!-- custom script -->
-<script src="assets/script.js"></script>
-<script src="assets/constants.js"></script>
-<script src="assets/common.js"></script>
-<script src="assets/track.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    track();
-  });
-</script>
-
-</body>
+        </script>
+  </body>
 </html>

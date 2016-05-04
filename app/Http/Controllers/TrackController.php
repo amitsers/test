@@ -25,7 +25,7 @@ class TrackController extends Controller
 
         if($validator->fails()) {
             $this->common->log('error', $this->file_name, 'Unknown hit' . __LINE__);
-            return 'Unknown hit';            
+            return 'Unknown hit';
         }
 
         $ip = "";
@@ -38,9 +38,10 @@ class TrackController extends Controller
         }
 
         $is_same = DB::table('tracks')
-                    ->where('date', date("Y-m-d"))
+                    ->where('date', date("Y-m-d H:i:s"))
                     ->where('ip', $ip)
                     ->where('page', $request->page)
+                    ->where('campaign_id', $request->cid)
                     ->increment('hits');
         echo $is_same;
         if(!$is_same) {
@@ -48,6 +49,7 @@ class TrackController extends Controller
                 'date' => date("Y-m-d H:i:s"),
                 'ip' => $ip,
                 'page' => $request->page,
+                'campaign_id' => $request->cid,
                 'hits' => 1
             ]);
         }

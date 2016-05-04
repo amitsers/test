@@ -17,6 +17,7 @@ class CreateTracksTable extends Migration
             $table->date('date');
             $table->string('ip');
             $table->string('page');
+            $table->string('campaign_id')->default(0);
             $table->string('hits');
             // $table->timestamps();
         });
