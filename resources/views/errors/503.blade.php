@@ -35,12 +35,18 @@
                 font-size: 72px;
                 margin-bottom: 40px;
             }
+
+            .redirect-link {
+                font-weight: bold;
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Be right back.</div>
+                <div class="title">You're in a wrong page.</div>
+                <br/><br/>
+                <div class="redirect-link">We'll redirect you. Plaese <a href="http://onlineaudition.xyz">click here</a></div>
             </div>
         </div>
     </body>

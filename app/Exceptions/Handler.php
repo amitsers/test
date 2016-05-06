@@ -42,10 +42,35 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        if ($e instanceof ModelNotFoundException) {
-            $e = new NotFoundHttpException($e->getMessage(), $e);
+        // if ($e instanceof ModelNotFoundException) {
+        //     $e = new NotFoundHttpException($e->getMessage(), $e);
+        // }
+
+        // return parent::render($request, $e);
+
+        if($this->isHttpException($e)){
+            return \Response::view('errors.503');
+            // switch ($e->getStatusCode()) {
+            //     case '404':
+            //                 \Log::error($e);
+            //             return \Response::view('errors.503');
+            //     break;
+
+            //     case '500':
+            //         \Log::error($exception);
+            //             return \Response::view('custom.503');   
+            //     break;
+
+            //     default:
+
+            //         return $this->renderHttpException($e);
+            //     break;
+            // }
+        }
+        else
+        {
+            return parent::render($request, $e);
         }
 
-        return parent::render($request, $e);
     }
 }
