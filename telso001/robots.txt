@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: 
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /images/
+Disallow: /adm/
+Sitemap: http://www.onlineaudition.xyz/sitemap.xml
