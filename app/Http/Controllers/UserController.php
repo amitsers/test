@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Redirect;
 use Route;
 use App\UploadDetail;
 use App\Transaction;
+use App\TrackPhone;
 use Log;
 use Illuminate\Support\Facades\Mail;
 // use \Auth;

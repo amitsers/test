@@ -30,6 +30,8 @@ Route::get('/test', 'UserController@test');
 Route::get('/update-profile-field', 'UserController@updateProfileField');
 
 Route::get('/track', 'TrackController@trackUser');
+Route::post('/track-phone', 'TrackController@trackPhone');
+Route::get('/track-page-ref', 'TrackController@trackPageReference');
 
 Route::get('/admin/login', 'AdminController@doLogin');
 Route::get('/admin/users', 'AdminController@index');

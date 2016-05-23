@@ -145,7 +145,7 @@
                       About <span>Contest</span>
                     </h2>
                     <p class="sh-ds">
-                      The true satisfaction of a singer is it's ability to perform and entertain people. When talents and opportunities meet, the journey towards success and achievements begins. Here <span itemprop="name">The Viral Voice Season-I</span>, brings you a great opportunity to showcase your talent and show the world that you are the BEST. So why waste time.Pick your phones ,record a cool audio clip and upload.. Thats it..Get ready for the online registration. Registration fee Rs 100 only..Good luck and wish you all the best. Keep in touch we'll update registration dates here.
+                      The true satisfaction of a singer is it's ability to perform and entertain people. When talents and opportunities meet, the journey towards success and achievements begins. Here <span itemprop="name">The Viral Voice Season-I</span>, brings you a great opportunity to showcase your talent and show the world that you are the BEST. So why waste time.Pick your phones ,record a cool audio clip and upload.. Thats it..Get ready for the online registration. Registration fee Rs 200 only..Good luck and wish you all the best. Keep in touch we'll update registration dates here.
                     </p>
                   </div>
                 </div>
@@ -247,6 +247,12 @@
                 </ul>
               </div>
             </div>
+
+            <div class="col-md-12 col-sm-12">
+              <div class="widget mailchimp-widget text-center">
+                <label>Copyright 2016 onlineaudition.xyz All rights reserved.</label>
+              </div>
+            </div>
           </div>  
         </div>  
       </footer>  
@@ -307,10 +313,11 @@
                 url: 'track.php',
                 type: 'POST',
                 data: {
-                  page: 'index'
+                  page: 'index',
+                  ref: getQueryParameter('ref')
                 },
                 success: function(res) {
-                  console.log(res);
+                  // console.log(res);
                 }
               });
               $('body').on('click', '.register-now', function() {
@@ -332,6 +339,16 @@
               // jQuery('#defaultCountdown').countdown({until: austDay});
               jQuery('#year').text(austDay.getFullYear());
             });
+
+          function getQueryParameter(queryParam) {
+            var allQueryParam = location.search.substr(1).split("&");
+            for(var i=0; i<allQueryParam.length; i++) {
+              if(allQueryParam[i].split('=')[0]===queryParam) {
+                return allQueryParam[i].split('=')[1];
+              }
+            }
+            return '';
+          }
 
         </script>
   </body>

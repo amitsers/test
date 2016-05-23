@@ -18,7 +18,7 @@
                   <li class="current-menu-item">
                     <a href="./">Home</a>
                   </li>                  
-                  <li><a href="#">Contact</a></li>
+                  <li><a href="#contact-us">Contact</a></li>
                   @if (!isset($user_name))
                     <li><a href="#register-now">Register</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#exampleModal">Login</a></li>

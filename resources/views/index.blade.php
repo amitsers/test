@@ -1,20 +1,36 @@
-
-<!doctype html>
-<html lang="en-US">
-  <head>
+<!DOCTYPE html>
+<!-- Microdata markup added by Google Structured Data Markup Helper. -->
+<html lang="en-US" class=" js no-touch"><head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-    <link rel="shortcut icon" href="{{{ asset('images/favicon.ico') }}}">
-    <link rel="icon" href="{{{ asset('images/favicon.ico') }}}">
+    <link rel="shortcut icon" href="images/logo.png"/>
+    <title>Online Singing Audition | The Viral Voice | 2016</title>
 
-    <title>Testing</title>
-    <meta name="keywords" content="Online Audition, Singing Contest, Sing online, Audition">
-    <meta name="description" content="First online based singing contest WebUnplugged">
+    <meta property="og:url" content="http://onlineaudition.xyz/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Online Singing Audition | The Viral Voice | 2016"/>
+    <meta property="og:description" content="The Viral Voice is fully online based singing contest. Participants needs to upload their audio clip after registration."/>
+    <meta property="og:image" content="http://onlineaudition.xyz/images/back.png"/>
+
+    <meta name="keywords" content="Online Singing Contest, The Viral Voice, Online Audition, Singing Contest, Sing online, Audition"/>
+    <meta name="description" content="Register for Singing Audition The Viral Voice Season-I. We will announce the date soon"/>
+    <meta id="_description3" itemprop="description" content="The true satisfaction of a singer is it's ability to perform and entertain people. When talents and opportunities meet, the journey towards success and achievements begins. Here The Viral Voice Season-I, brings you a great opportunity to showcase your talent and show the world that you are the BEST. So why waste time. Pick your phones ,record a cool audio clip and upload.. Thats it..Get ready for the online registration. Registration fee Rs 100 only..Good luck and wish you all the best.">
+    <meta id="_url4" itemprop="url" content="http://www.onlineaudition.xyz/">
+    <meta itemprop="name" content="Online Singing Audition | The Viral Voice | 2016">
 
     <!-- included css and js files -->
     @include('templates.header-includes')
   </head>
   <body class="page-menu-transparent">
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=121117958298617";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
     <!--preloader-->
         <div id="loading">
       <div id="loading-center">
@@ -65,7 +81,8 @@
                             <span class="countdown-period">--</span>
                           </span>
                           <span class="countdown-section">
-                            <span class="countdown-amount">2016</span>
+                            <span class="countdown-amount">
+                              <meta itemprop="startDate" content="2016-06-30">2016</span>
                             <span class="countdown-period">--</span>
                           </span>
                         </span>
@@ -172,8 +189,8 @@
                       About <span>Contest</span>
                     </h2>
                     <p class="sh-ds">
-                      We're organizing {{{$season_name}}} to encourage and offer a opportunity for young talented singers. This is fully online based contest. Participants can upload their audio clip after registration. Online registration will open from 15th April, 2016. Participants need to pay Rs.100 only as registration fee.
-                    </p>                    
+                      The true satisfaction of a singer is it's ability to perform and entertain people. When talents and opportunities meet, the journey towards success and achievements begins. Here <span itemprop="name">The Viral Voice Season-I</span>, brings you a great opportunity to showcase your talent and show the world that you are the BEST. So why waste time.Pick your phones ,record a cool audio clip and upload.. Thats it..Get ready for the online registration. Registration fee Rs 200 only..Good luck and wish you all the best. Keep in touch we'll update registration dates here.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -200,10 +217,11 @@
               return false;
             }
             $.ajax({
-              url: 'save-contact.php',
+              url: 'track-phone',
               type: 'POST',
               data: {
-                mobile_no: $('#mobileNo').val()
+                mobile_no: $('#mobileNo').val(),
+                _token: $('#_tokenPhone').val()
               },
               success: function(res) {
                 $('.mobileError').html('Thanks we will contact you soon');

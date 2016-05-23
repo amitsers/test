@@ -4,7 +4,7 @@ function doLogin() {
   for (var c=0; c<errorClasses.length; c++) {
     $('.'+errorClasses[c]).hide();
   }
-
+  console.log(333);
   $.ajax({
       url: 'login',
       type: 'POST',

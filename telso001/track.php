@@ -1,5 +1,6 @@
+
 <?php
-	include_once "connection.php";
+	include_once "adm/connection.php";
 	if(isset($_POST['page']) && $_POST['page']=='index'){
 
 		$ip = "";
@@ -11,13 +12,12 @@
 			$ip = $_SERVER['REMOTE_ADDR'];
 		}
 
-		$sql="SELECT * FROM track_page WHERE ip ='$ip' &&  visit_date='" .date("Y-m-d"). "'";
-		$result=mysqli_query($con,$sql);
-		echo mysqli_num_rows($result);
-		if(mysqli_num_rows($result) > 0) {
-			mysqli_query($con,"UPDATE track_page SET views = views + 1 WHERE ip ='$ip' &&  visit_date='" .date("Y-m-d"). "'");
+		$sql="SELECT * FROM track_page WHERE ip ='$ip' &&  visit_date='" .date("Y-m-d"). "' && reference='$_POST[ref]'";
+		$result = $conn->query($sql);
+		if($result->num_rows > 0) {
+			$conn->query("UPDATE track_page SET views = views + 1 WHERE ip ='$ip' &&  visit_date='" .date("Y-m-d"). "' && reference='$_POST[ref]'");
 		} else {
-			mysqli_query($con,"INSERT INTO track_page (ip, visit_date, views) VALUES ('$ip', '".date("Y-m-d")."', '1')");
+			$conn->query("INSERT INTO track_page (ip, visit_date, views, reference) VALUES ('$ip', '".date("Y-m-d")."', '1', '$_POST[ref]')");
 		}
 		mysqli_free_result($result);
 		mysqli_close($con);

@@ -10,6 +10,7 @@ use App\Http\Controllers\CommonController;
 use Validator;
 use Log;
 use DB;
+use App\TrackPhone;
 
 class TrackController extends Controller
 {
@@ -51,6 +52,59 @@ class TrackController extends Controller
                 'page' => $request->page,
                 'campaign_id' => $request->cid,
                 'hits' => 1
+            ]);
+        }
+        return 'done';
+    }
+
+    public function trackPhone(Request $request) {
+        $ip = "";
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+
+        DB::table('track_phones')->insertGetId([
+            'mobile' => $request->mobile_no,
+            'ip' => $ip
+        ]);
+        return 'done';
+    }
+
+    public function trackPageReference(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'ref' => 'required',
+        ]);
+
+        if($validator->fails()) {
+            $this->common->log('error', $this->file_name, 'Unknown hit trackPageReference' . __LINE__);
+            return 'Unknown hit trackPageReference';
+        }
+
+        $ip = "";
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+
+        $is_same = DB::table('track_pages')
+                    ->where('visit_date', date("Y-m-d"))
+                    ->where('ip', $ip)
+                    ->where('reference', $request->ref)
+                    ->increment('views');
+
+        if(!$is_same) {
+            DB::table('track_pages')->insert([
+                'visit_date' => date("Y-m-d"),
+                'ip' => $ip,
+                'reference' => $request->ref,
+                'views' => 1
             ]);
         }
         return 'done';

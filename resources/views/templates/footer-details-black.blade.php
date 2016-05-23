@@ -1,4 +1,4 @@
-      <footer class="colophon site-info come-to-footer">
+      <footer itemscope itemtype="http://schema.org/Event" itemref="_description3 _url4" class="colophon site-info come-to-footer">
         <div class="colophon wigetized">
           <div class="background-footer"></div>
           <div class="container">
@@ -29,9 +29,10 @@
                         Audition Start Date
                       </h2>
                       <div class="duration">
-                        <span class="date-start dtstart">@if(isset($season_start_date)) {{{$season_start_date}}} @endif</span>
-                       <!--  -
-                        <span class="date-end dtend">October 31-10:00 pm</span> -->
+                        <span class="date-start dtstart">
+                          <meta itemprop="startDate" content="2016-06-30">May, 2016</span>
+                        
+                         -<span class="date-end dtend">October 31-10:00 pm</span>
                       </div>
                     </div>  
                   </div>
@@ -53,6 +54,7 @@
                   </div>
                 </div>
               </div>
+              <a name="contact-us"></a>
               <div class="col-md-4 col-sm-6">
                 <div class="widget mailchimp-widget">
                   <h4 class="widget-title">Number <span>Please</span></h4>
@@ -63,6 +65,7 @@
                       <span class="mobileError"></span>
                       <i class="fa fa-envelope-o icon-mc-email"></i>
                     </div>
+                    <input type="hidden" name='_tokenPhone' value="<?php echo csrf_token(); ?>" id='_tokenPhone'>
                     <input type="submit" name="sendMob" value="Send now"/>
                   </form>
                 </div>
@@ -84,7 +87,7 @@
                   </li>
                   <li class="info-mail">
                     <span class="fa fa-envelope-o infomation-left"></span>
-                    <span><a href="mailto:admin@onlineaudition.xyz">admin@onlineaudition.xyz</a></span>
+                    <span><a href="mailto:query@onlineaudition.xyz">query@onlineaudition.xyz</a></span>
                   </li>
                 </ul>
               </div>
