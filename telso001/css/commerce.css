@@ -3069,5 +3069,23 @@ thead.spaceUnder > tr > th {
 }
 
 table.dates-table {
-    margin-left: 31px;
+    margin-left: 120px;
+}
+
+@media (max-width:970px) {
+    table.dates-table {
+    margin-left: 80px;
+}
+}
+
+@media (max-width:400px) {
+    table.dates-table {
+    margin-left: 40px;
+}
+}
+
+@media (max-width:302px) {
+    table.dates-table {
+    margin-left: 30px;
+}
 }

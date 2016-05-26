@@ -50,7 +50,7 @@
             <div class="col-sm-12">
               <div class="noo-grid-header-events header-news">
                 <span class="icon">
-                  <i class="fa fa-file-image-o"></i>
+                  <i class="fa fa-microphone"></i>
                 </span>
                 <h2 class="sh-event-title">Singing Auditions</h2>
                 <p class="sh-ds">
@@ -69,130 +69,133 @@
                     <p class="content-meta">
                       <span>
                         <i class="fa fa-calendar"></i>
-                        <time class="entry-date" datetime="2015-05-28T06:51:33+00:00">
-                          May 28th, 2015
+                        <time class="entry-date" datetime="">
+                          Comming Soon
                         </time>
                       </span>
-                      <span>
-                        <i class="fa fa-comments-o"></i>
-                        <a href="#" class="meta-comments"> 0</a>
-                      </span>
-                      <span><i class="fa fa-eye"></i>365</span>
                     </p>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                      India's first online singing contest The Viral Voice. The Viral Voice Season-I, brings you a great opportunity to showcase your talent and show the world that you are the BEST. Audition dates will be declared soon.
                     </p>
                     <a class="read-more" href="#">Continue Reading...</a>
                   </div>
                 </li>
-                <li>
+				
+				<li>
                   <div class="noo-sh-thumbail">
                     <div class="shthumbail">
-                      <img width="600" height="450" src="images/blog/blog24.jpg" alt="blog24"/>
+                      <img width="600" height="450" src="images/auditions/magical-voice-of-india.png" alt="magical-voice-of-india"/>
                     </div>
                   </div>
                   <div class="noo-sh-blog-content">
-                    <h3><a href="#">The rolling stones at hyde part</a></h3>
+                    <h3><a href="#">Magical Voice of India</a></h3>
                     <p class="content-meta">
                       <span>
                         <i class="fa fa-calendar"></i>
-                        <time class="entry-date" datetime="2015-05-28T06:51:33+00:00">
-                          May 28th, 2015
+                        <time class="entry-date" datetime="">
+                          Audition Closed
                         </time>
                       </span>
-                      <span>
-                        <i class="fa fa-comments-o"></i>
-                        <a href="#" class="meta-comments"> 0</a>
-                      </span>
-                      <span><i class="fa fa-eye"></i>259</span>
                     </p>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                      Magical Voice Of India is a National singing competition like no other. We are searching for the best singers, You could have the chance to perform and represent your talent at the India’s biggest music venues !
                     </p>
                     <a class="read-more" href="#">Continue Reading...</a>
                   </div>
                 </li>
-                <li>
+				
+				<li>
                   <div class="noo-sh-thumbail">
                     <div class="shthumbail">
-                      <img width="600" height="450" src="images/blog/blog12.jpg" alt="blog12"/>
+                      <img width="600" height="450" src="images/auditions/sing-dil-se.png" alt="sing-dil-se"/>
                     </div>
                   </div>
                   <div class="noo-sh-blog-content">
-                    <h3><a href="#">Live on letterman</a></h3>
+                    <h3><a href="#">Sing Dil Se</a></h3>
                     <p class="content-meta">
                       <span>
                         <i class="fa fa-calendar"></i>
-                        <time class="entry-date" datetime="2015-05-28T06:51:33+00:00">
-                          May 28th, 2015
+                        <time class="entry-date" datetime="">
+                          Audition Going On
                         </time>
                       </span>
-                      <span>
-                        <i class="fa fa-comments-o"></i>
-                        <a href="#" class="meta-comments"> 0</a>
-                      </span>
-                      <span><i class="fa fa-eye"></i>162</span>
                     </p>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                      
                     </p>
                     <a class="read-more" href="#">Continue Reading...</a>
                   </div>
                 </li>
-                <li>
+				
+				<li>
                   <div class="noo-sh-thumbail">
                     <div class="shthumbail">
-                      <img width="600" height="450" src="images/blog/blog10.jpg" alt="blog10"/>
+                      <img width="600" height="450" src="images/auditions/indian-idol.png" alt="indian-idol"/>
                     </div>
                   </div>
                   <div class="noo-sh-blog-content">
-                    <h3><a href="#">2014 Tour Announced</a></h3>
+                    <h3><a href="#">Indian Idol Season 7</a></h3>
                     <p class="content-meta">
                       <span>
                         <i class="fa fa-calendar"></i>
-                        <time class="entry-date" datetime="2015-05-28T06:51:33+00:00">
-                          May 28th, 2015
+                        <time class="entry-date" datetime="">
+                          Comming Soon
                         </time>
                       </span>
-                      <span>
-                        <i class="fa fa-comments-o"></i>
-                        <a href="#" class="meta-comments"> 0</a>
-                      </span>
-                      <span><i class="fa fa-eye"></i>144</span>
                     </p>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                      After doing successfull seasons, now Sony TV brings season 7 end of this year. Do more and more practise and prepare for the audition. Keep in touch with us for immediate updates.
                     </p>
                     <a class="read-more" href="#">Continue Reading...</a>
                   </div>
                 </li>
-                <li>
+				
+				<li>
                   <div class="noo-sh-thumbail">
                     <div class="shthumbail">
-                      <img width="600" height="450" src="images/blog/blog10.jpg" alt="blog10"/>
+                      <img width="600" height="450" src="images/auditions/saregamapa-2016.jpg" alt="saregamapa-2016"/>
                     </div>
                   </div>
                   <div class="noo-sh-blog-content">
-                    <h3><a href="#">2014 Tour Announced</a></h3>
+                    <h3><a href="#">Sa Re Ga Ma Pa - 20016</a></h3>
                     <p class="content-meta">
                       <span>
                         <i class="fa fa-calendar"></i>
-                        <time class="entry-date" datetime="2015-05-28T06:51:33+00:00">
-                          May 00th, 2015
+                        <time class="entry-date" datetime="">
+                          Audition Closed
                         </time>
                       </span>
-                      <span>
-                        <i class="fa fa-comments-o"></i>
-                        <a href="#" class="meta-comments"> 0</a>
-                      </span>
-                      <span><i class="fa fa-eye"></i>144</span>
                     </p>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                      Zee TV's 'Sa Re Ga Ma Pa', the first singing talent hunt show on Indian television has been instrumental in introducing the country to some of its demigods of music - Shreya Ghoshal, Kunal Ganjawala, Shekhar Ravjiani, Bela Shende, Sanjivani and Kamal Khan in the last two decades.
                     </p>
                     <a class="read-more" href="#">Continue Reading...</a>
                   </div>
                 </li>
+				
+				<li>
+                  <div class="noo-sh-thumbail">
+                    <div class="shthumbail">
+                      <img width="600" height="450" src="images/auditions/saregamapa-2016.jpg" alt="saregamapa-2016"/>
+                    </div>
+                  </div>
+                  <div class="noo-sh-blog-content">
+                    <h3><a href="#">Sa Re Ga Ma Pa - 20016</a></h3>
+                    <p class="content-meta">
+                      <span>
+                        <i class="fa fa-calendar"></i>
+                        <time class="entry-date" datetime="">
+                          Audition Closed
+                        </time>
+                      </span>
+                    </p>
+                    <p>
+                      Zee TV's 'Sa Re Ga Ma Pa', the first singing talent hunt show on Indian television has been instrumental in introducing the country to some of its demigods of music - Shreya Ghoshal, Kunal Ganjawala, Shekhar Ravjiani, Bela Shende, Sanjivani and Kamal Khan in the last two decades.
+                    </p>
+                    <a class="read-more" href="#">Continue Reading...</a>
+                  </div>
+                </li>
+                
               </ul>
             </div>
           </div>

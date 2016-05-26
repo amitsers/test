@@ -8,7 +8,7 @@
 
     <meta property="og:url" content="http://onlineaudition.xyz/"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content=""/>
+    <meta property="og:title" content="Indian Idol Audition - 2016 | onlineaudition.xyz"/>
     <meta property="og:description" content=""/>
     <meta property="og:image" content="http://onlineaudition.xyz/images/back.png"/>
 
@@ -50,72 +50,111 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="noo-shortcode-events">
-                <h2 class="sh-event-title">
-                  Testing <span>test</span>
+                <h2 class="sh-event-title event-title">
+                  Indian Idol 7 <span> Audition Details</span>
                 </h2>                
                 <div class="noo-sh-event-content">
                   <div class="noo-sh-list-event">
-                    <span class="entry-date">
-                      29 <span class="month">March </span>
-                    </span>
-                    <div class="noo-thumbnail thumb-1"></div>
+                    <div class="noo-thumbnail thumb-2"></div>
                     <div class="noo-shevent-content">
-                      <h4><a href="#">Credit Union Centre</a></h4>
+                      <h4><a href="#">Indian Idol Season 7</a></h4>
                       <div class="sh-meta">
                         <span class="sh-date">
-                          <i class="fa fa-clock-o"></i>
+                          <i class="fa fa-calendar"></i>
                           <span class="date-start dtstart">
-                            March 29-8:00 pm
+                            Comming Soon
                           </span>
-                          -
-                          <span class="date-end dtend">
-                            September 30-5:00 pm
-                          </span>
-                        </span>
-                        <span class="sh-address">
-                          <i class="fa fa-map-marker"></i>
-                          Gramercy Park Hotel, NewYork
-                        </span>
                       </div>
                       <div class="sh-excerpt">
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						Online Audition FB Page: <a href="https://www.facebook.com/onlineaudition.xyz">Online Audition</a> <br/>
+						Facebook: <a href="https://www.facebook.com/IndianIdol.08/">Indian Idol Page</a> <br/>
+						Website: <a href="http://www.setindia.com">http://www.setindia.com</a>
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
+				<br/><br/>
                 <p class="sh-ds-justify">
-                  New events are coming along with new surprises and scales. Find out your favorite one in the collection and enjoy the moments with us. Bring inspiration for music band and fan isthe key mission. New events are coming along with new surprises and scales. Find out your favorite one in the collection and enjoy the moments with us. Bring inspiration for music band and fan isthe key mission. New events are coming along with new surprises and scales. Find out your favorite one in the collection and enjoy the moments with us. Bring inspiration for music band and fan isthe key mission.
+                  After doing successfull seasons, now Sony TV brings season 7 end of this year. Do more and more practise and prepare for the audition. Audition dates are not declared yet. We'll update you once they declare their audition details.
                 </p>
+				<br/>
+				<p class="sh-ds-justify">
+                  For more updates like our facebook page and subscribe our page. Keep in touch with us for immediate updates.
+                </p>
+				<br/>
                 <p class="sh-ds-justify">
-                  New events are coming along with new surprises and scales. Find out your favorite one in the collection and enjoy the moments with us. Bring inspiration for music band and fan isthe key mission. New events are coming along with new surprises and scales. Find out your favorite one in the collection and enjoy the moments with us. Bring inspiration for music band and fan isthe key mission. New events are coming along with new surprises and scales. Find out your favorite one in the collection and enjoy the moments with us. Bring inspiration for music band and fan isthe key mission.
+                  Indian Idol Season 7 2016 Registration & Auditions Details
                 </p>
                 <br/>
-                <table class="dates-table">
+				<div class="audition-details">
+				<table class="dates-table">
                   <thead class="spaceUnder">
                     <th>Sl. No.</th>
                     <th>Location</th>
                     <th>Date</th>
                   </thead>
-                  <tbody>
-                    <tr class="spaceUnder">
+                  <tbody>                 
+					
+					<tr class="spaceUnder">
                       <td>1</td>
-                      <td>Kolkata</td>
-                      <td>21st June, 2016</td>
+                      <td>JAIPUR AUDITION</td>
+                      <td>Coming Soon</td>
                     </tr>
-                    <tr class="spaceUnder">
+					<tr class="spaceUnder">
                       <td>2</td>
-                      <td>Delhi</td>
-                      <td>30th June, 2016</td>
+                      <td>HYDERABAD AUDITION</td>
+                      <td>Coming Soon</td>
+                    </tr>					
+					<tr class="spaceUnder">
+                      <td>3</td>
+                      <td>CHANDIGARH AUDITION</td>
+                      <td>Coming Soon</td>
                     </tr>
-                    <tr class="spaceUnder">
-                      <td>1</td>
-                      <td>Mumbai</td>
-                      <td>1st May, 2016</td>
+					<tr class="spaceUnder">
+                      <td>4</td>
+                      <td>MUMBAI AUDITION</td>
+                      <td>Coming Soon</td>
+                    </tr>
+					<tr class="spaceUnder">
+                      <td>5</td>
+                      <td>LUCKNOW AUDITION</td>
+                      <td>Coming Soon</td>
+                    </tr>
+					<tr class="spaceUnder">
+                      <td>6</td>
+                      <td>JAMMU AUDITION</td>
+                      <td>Coming Soon</td>
+                    </tr>
+					<tr class="spaceUnder">
+                      <td>7</td>
+                      <td>NAGPUR AUDITION</td>
+                      <td>Coming Soon</td>
+                    </tr>
+					<tr class="spaceUnder">
+                      <td>8</td>
+                      <td>BHUBANSEHWAR AUDITION</td>
+                      <td>Coming Soon</td>
+                    </tr>
+					<tr class="spaceUnder">
+                      <td>9</td>
+                      <td>KOLKATA AUDITION</td>
+                      <td>Coming Soon</td>
+                    </tr>					
+					<tr class="spaceUnder">
+                      <td>10</td>
+                      <td>DELHI AUDITION</td>
+                      <td>Coming Soon</td>
+                    </tr>
+					<tr class="spaceUnder">
+                      <td>11</td>
+                      <td>PATNA AUDITION</td>
+                      <td>Coming Soon</td>
                     </tr>
                   </tbody>
                 </table>
+				</div>
               </div>
             </div>
           </div>
