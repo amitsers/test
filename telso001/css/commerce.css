@@ -3042,3 +3042,32 @@ button, html input[type=button], input[type=reset], input[type=submit] {
 .widget.mailchimp-widget.text-center {
     text-align: center;
 }
+
+div#disqus_thread {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.sh-ds-justify {
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    padding: 0 10%;
+    margin: 0;
+    font-weight: 400;
+    text-align: justify;
+}
+
+tr.spaceUnder > td {
+    padding-bottom: 1em;
+    padding-right: 2em;
+}
+
+thead.spaceUnder > tr > th {
+    padding-bottom: 2em;
+    padding-right: 2em;
+}
+
+table.dates-table {
+    margin-left: 31px;
+}

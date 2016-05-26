@@ -17,8 +17,8 @@
 		$dbname = "myDB";
 
 		$conn = new mysqli($servername, $username, $password, $dbname);
-
-		$sql = "INSERT INTO track_mobile (mobile, ip) VALUES ('$mobile_no', '$ip')";
+		
+		$sql = "INSERT IGNORE INTO track_mobile (mobile, ip) VALUES ('$mobile_no', '$ip')";
 		$conn->query($sql);
 		if ($conn->query($sql) === TRUE) {
 		    echo 1;
