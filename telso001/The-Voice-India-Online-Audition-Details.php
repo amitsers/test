@@ -4,19 +4,30 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <link rel="shortcut icon" href="images/logo.png"/>
-    <title>Test</title>
+    <title>The Voice India Audition | www.onlineaudition.xyz</title>
 
     <meta property="og:url" content="http://onlineaudition.xyz/"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Indian Idol Audition - 2016 | onlineaudition.xyz"/>
-    <meta property="og:description" content=""/>
-    <meta property="og:image" content="http://onlineaudition.xyz/images/back.png"/>
+    <meta property="og:title" content="The Voice India Audition | www.onlineaudition.xyz"/>
+    <meta property="og:description" content="The Voice India Audition"/>
+    <meta property="og:image" content="http://onlineaudition.xyz/images/auditions/The-Voice-India-season-2-2016-Online-Registration-and-Audition-Details.jpg"/>
+	
+	<meta property="article:tag" content="Audition"/>
+	<meta property="article:tag" content="The Voice India Audition"/>
+	<meta property="article:tag" content="Online Registration"/>
+	<meta property="article:tag" content="Singing Audition"/>
 
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
-    <meta id="_description3" itemprop="description" content="">
+    <meta name="keywords" content="Singing Audition, Online Audition, The Voice India Audition"/>
+    <meta name="description" content="The Voice India Audition"/>
+    <meta id="_description3" itemprop="description" content="The Voice India Audition">
     <meta id="_url4" itemprop="url" content="http://www.onlineaudition.xyz/">
-    <meta itemprop="name" content="">
+    <meta itemprop="name" content="The Voice India Audition | www.onlineaudition.xyz">
+	
+	<meta name="robots" content="index, follow">
+	<meta name="revisit-after" content="7 days">
+	<meta name="googlebot" content="noodp">
+	<meta name="reply-to" content="query@onlineaudition.xyz">
+	<link rel="canonical" href="www.onlineaudition.xyz/The-Voice-India-Online-Audition-Details" />
 
     <?php
       include_once("inc/top-files.php");
@@ -51,13 +62,13 @@
             <div class="col-sm-12">
               <div class="noo-shortcode-events">
                 <h2 class="sh-event-title event-title">
-                  Indian Idol 7 <span> Audition Details</span>
+                  The Voice India <span> Audition Details</span>
                 </h2>                
                 <div class="noo-sh-event-content">
                   <div class="noo-sh-list-event">
-                    <div class="noo-thumbnail thumb-2"></div>
+                    <div class="noo-thumbnail thumb-4"></div>
                     <div class="noo-shevent-content">
-                      <h4><a href="#">Indian Idol Season 7</a></h4>
+                      <h4><a href="#">The Voice India Season 2 - 2016</a></h4>
                       <div class="sh-meta">
                         <span class="sh-date">
                           <i class="fa fa-calendar"></i>
@@ -68,8 +79,8 @@
                       <div class="sh-excerpt">
                         <p>
 						Online Audition FB Page: <a href="https://www.facebook.com/onlineaudition.xyz">Online Audition</a> <br/>
-						Facebook: <a href="https://www.facebook.com/IndianIdol.08/">Indian Idol Page</a> <br/>
-						Website: <a href="http://www.setindia.com">http://www.setindia.com</a>
+						Facebook: <br/>
+						Website: 
                         </p>
                       </div>
                     </div>
@@ -77,7 +88,11 @@
                 </div>
 				<br/><br/>
                 <p class="sh-ds-justify">
-                  After doing successfull seasons, now Sony TV brings season 7 end of this year. Do more and more practise and prepare for the audition. Audition dates are not declared yet. We'll update you once they declare their audition details.
+                  This is a singing reality show which is aired on &TV. After successfully completing last season, coming this new season again. <i>Himesh Reshammiya, Mika Singh,Shaan and Sunidhi Chauhan</i> were the judges in last season.
+                </p>
+				<br/>
+				<p class="sh-ds-justify">
+                  There are three phases in The Voice Audition: <br/>(i) Blind Audition<br/>  (ii) Battle Phase<br/>   (iii) Live Performance<br/>
                 </p>
 				<br/>
 				<p class="sh-ds-justify">
@@ -85,76 +100,9 @@
                 </p>
 				<br/>
                 <p class="sh-ds-justify">
-                  Indian Idol Season 7 2016 Registration & Auditions Details
+                  <b>More details coming soon.</b>
                 </p>
                 <br/>
-				<div class="audition-details">
-				<table class="dates-table">
-                  <thead class="spaceUnder">
-                    <th>Sl. No.</th>
-                    <th>Location</th>
-                    <th>Date</th>
-                  </thead>
-                  <tbody>                 
-					
-					<tr class="spaceUnder">
-                      <td>1</td>
-                      <td>JAIPUR AUDITION</td>
-                      <td>Coming Soon</td>
-                    </tr>
-					<tr class="spaceUnder">
-                      <td>2</td>
-                      <td>HYDERABAD AUDITION</td>
-                      <td>Coming Soon</td>
-                    </tr>					
-					<tr class="spaceUnder">
-                      <td>3</td>
-                      <td>CHANDIGARH AUDITION</td>
-                      <td>Coming Soon</td>
-                    </tr>
-					<tr class="spaceUnder">
-                      <td>4</td>
-                      <td>MUMBAI AUDITION</td>
-                      <td>Coming Soon</td>
-                    </tr>
-					<tr class="spaceUnder">
-                      <td>5</td>
-                      <td>LUCKNOW AUDITION</td>
-                      <td>Coming Soon</td>
-                    </tr>
-					<tr class="spaceUnder">
-                      <td>6</td>
-                      <td>JAMMU AUDITION</td>
-                      <td>Coming Soon</td>
-                    </tr>
-					<tr class="spaceUnder">
-                      <td>7</td>
-                      <td>NAGPUR AUDITION</td>
-                      <td>Coming Soon</td>
-                    </tr>
-					<tr class="spaceUnder">
-                      <td>8</td>
-                      <td>BHUBANSEHWAR AUDITION</td>
-                      <td>Coming Soon</td>
-                    </tr>
-					<tr class="spaceUnder">
-                      <td>9</td>
-                      <td>KOLKATA AUDITION</td>
-                      <td>Coming Soon</td>
-                    </tr>					
-					<tr class="spaceUnder">
-                      <td>10</td>
-                      <td>DELHI AUDITION</td>
-                      <td>Coming Soon</td>
-                    </tr>
-					<tr class="spaceUnder">
-                      <td>11</td>
-                      <td>PATNA AUDITION</td>
-                      <td>Coming Soon</td>
-                    </tr>
-                  </tbody>
-                </table>
-				</div>
               </div>
             </div>
           </div>
@@ -168,12 +116,10 @@
       * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
       * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
       */
-      /*
       var disqus_config = function () {
-      this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = 'http://www.onlineaudition.xyz/The-Voice-India-Online-Audition-Details'; // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = 'the-voice-india'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
       };
-      */
       (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');
 
