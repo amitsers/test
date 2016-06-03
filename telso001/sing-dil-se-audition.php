@@ -4,11 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <link rel="shortcut icon" href="images/logo.png"/>
-    <title>Sing Dil Se Season 3 | www.onlineaudition.xyz</title>
+    <title>Sing Dil Se Audition | www.onlineaudition.xyz</title>
 
     <meta property="og:url" content="http://onlineaudition.xyz/"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Sing Dil Se - 2016 | Online Registration | www.onlineaudition.xyz"/>
+    <meta property="og:title" content="Sing Dil Se Audition - 2016 | Online Registration | www.onlineaudition.xyz"/>
     <meta property="og:description" content="Register for Sing Dil Se"/>
     <meta property="og:image" content="http://onlineaudition.xyz/images/auditions/sing-dil-se-audition-2016.jpg"/>
 	
@@ -21,7 +21,7 @@
     <meta name="description" content="Register for Sing Dil Se"/>
     <meta id="_description3" itemprop="description" content="Register for Sing Dil Se">
     <meta id="_url4" itemprop="url" content="http://www.onlineaudition.xyz/">
-    <meta itemprop="name" content="Sing Dil Se - 2016 | Online Registration | www.onlineaudition.xyz">
+    <meta itemprop="name" content="Sing Dil Se Audition 2016 | Online Registration | www.onlineaudition.xyz">
 	
 	<meta name="robots" content="index, follow">
 	<meta name="revisit-after" content="7 days">
@@ -78,7 +78,7 @@
                       </div>
                       <div class="sh-excerpt">
                         <p>
-						Online Audition FB Page: <a href="https://www.facebook.com/onlineaudition.xyz">Online Audition</a> <br/>
+						Our FB Page: <a href="https://www.facebook.com/onlineaudition.xyz">Online Audition</a> <br/>
 						Facebook: <a href="https://www.facebook.com/singdilse">Sing Dil Se Facebook</a><br/>
 						Website: <a href="http://www.singdilse.com">Sing Dil Se Online Registration</a><br/>
 						Customer Support: <a href="#">8800221124</a><br/>

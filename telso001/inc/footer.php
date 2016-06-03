@@ -5,10 +5,10 @@
       <div class="row noo-footer-main">
         <div class="col-md-4 col-sm-6">
           <div class="widget widget_text">
-            <h4 class="widget-title">Other <span>Details</span></h4>
+            <h4 class="widget-title">Ongoing <span>Auditions</span></h4>
             <div class="textwidget">
               <p>
-                We'll annouce the registration dates soon. In the mean time you can give your number to us or just send an email to us, our team will inform you the dates once decided. Like our facebook page for more updates.
+                <a href="http://www.onlineaudition.xyz/sing-dil-se-audition">Sing Dil Se Registration (Click Here)</a>
               </p>
               <p>
                 

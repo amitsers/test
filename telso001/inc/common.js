@@ -28,18 +28,18 @@ var $height_w   = jQuery(window).height();
                 var $height_w = jQuery(window).height();
                 jQuery('.noo-countdown').css('height',$height_w+'px');
           });
-            jQuery(function () {
-              $.ajax({
-                url: 'track.php',
-                type: 'POST',
-                data: {
-                  page: 'index',
-                  ref: getQueryParameter('ref')
-                },
-                success: function(res) {
-                  // console.log(res);
-                }
-              });
+            // jQuery(function () {
+              // $.ajax({
+                // url: 'track.php',
+                // type: 'POST',
+                // data: {
+                  // page: 'index',
+                  // ref: getQueryParameter('ref')
+                // },
+                // success: function(res) {
+                  // // console.log(res);
+                // }
+              // });
               $('body').on('click', '.register-now', function() {
               $("html, body").animate({
                   scrollTop: $('.come-to-footer').outerHeight()

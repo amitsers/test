@@ -78,7 +78,7 @@
                       </div>
                       <div class="sh-excerpt">
                         <p>
-						Online Audition FB Page: <a href="https://www.facebook.com/onlineaudition.xyz">Online Audition</a> <br/>
+						Our FB Page: <a href="https://www.facebook.com/onlineaudition.xyz">Online Audition</a> <br/>
 						Facebook: <br/>
 						Website: <a href="http://www.setindia.com">http://www.sonyliv.com</a>
                         </p>

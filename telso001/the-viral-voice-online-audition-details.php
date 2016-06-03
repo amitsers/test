@@ -77,7 +77,8 @@
                           </span>
                       </div>
                       <div class="sh-excerpt">
-                        <p>						
+                        <p>
+						Facebook: <a href="http://fb.com/onlineaudition.xyz">Online Audition Facebook</a><br/>
 						Call / Watsapp: <a href="#">8981474462</a> <br/>
 						Email: <a href="mailto:query@onlineaudition.xyz">query@onlineaudition.xyz</a> <br/>
 						Website: <a href="http://www.onlineaudition.xyz">http://www.onlineaudition.xyz</a>
@@ -92,11 +93,11 @@
                 </p>
 				<br/>
                 <p class="sh-ds-justify">
-                  Registration is free. But while uploading audio clip participants needs to pay Rs.200 only. For more information and queries call/watsapp at 8981474462 or you can mail them at <a href="mailto:query@onlineaudition.xyz">query@onlineaudition.xyz</a>
+                  Registration is free. Participants needs to pay Rs.200 only while uploading audio clip. For more information and queries call/watsapp at 8981474462 or you can mail them at <a href="mailto:query@onlineaudition.xyz">query@onlineaudition.xyz</a>
                 </p>
                 <br/>
 				<p class="sh-ds-justify">
-                  If you want to get notified then please submit your mobile number below. Please like our facebook page for more updates.
+                  If you want to get notified then please submit your mobile number below. Please like our facebook page for more updates. You can contact them directly in their given mobile number via watsapp.
                 </p>
                 <br/>
               </div>
