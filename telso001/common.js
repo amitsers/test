@@ -33,7 +33,7 @@ var $height_w   = jQuery(window).height();
         url: 'track.php',
         type: 'POST',
         data: {
-          page: 'index',
+          page: window.location.pathname,
           ref: getQueryParameter('ref')
         },
         success: function(res) {

@@ -1,5 +1,9 @@
 
 
+
+<?php
+	include_once "connection.php";
+?>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">  
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -23,18 +27,19 @@
 <meta name="robots" content="noindex,nofollow">
 <form action="" method="GET">
 	For Single Date:<br/> 
-	<input type="date" placeholder='dd-mm-yyyy' name="date" /><br/><br/>
+	<input type="date" placeholder='dd-mm-yyyy' name="date" value="<?php if(isset($_GET['date'])){echo $_GET['date'];} ?>"/><br/><br/>
 	Date Range <br/>
 	From:<br/>
-	<input type="date" placeholder='dd-mm-yyyy' name="from_date" /><br/>
+	<input type="date" placeholder='dd-mm-yyyy' name="from_date" value="<?php if(isset($_GET['from_date'])){echo $_GET['from_date'];} ?>"/><br/>
 	To:<br/>
-	<input type="date" placeholder='dd-mm-yyyy' name="to_date" /><br/>
-	<input type="checkbox" name="include_ref" value="true" checked> Calculate Reference Also<br/>
-	<input type="submit" value="Submit" name="submit"/>
+	<input type="date" placeholder='dd-mm-yyyy' name="to_date" value="<?php if(isset($_GET['to_date'])){echo $_GET['to_date'];} ?>"/><br/><br/>
+	<input type="checkbox" name="include_ref" value="true" checked> Calculate Reference Also<br/><br/>
+	<button type="reset" value="Reset">Reset</button>&nbsp;&nbsp;<input type="submit" value="Submit" name="submit"/>
 </form>
 <br/><br/>
 
 <?php
+
 if(isset($_GET['submit'])){
 
 ?>
@@ -46,18 +51,16 @@ if(isset($_GET['submit'])){
 				<td>IP</td>
 				<td>Reference</td>
 				<td>Views</td>
+				<td>Page</td>
 			</tr>
 		</thead>
 		<tbody>
 <?php
-		include_once "connection.php";
+		
 		if (($_GET['from_date'] != '') && ($_GET['to_date'] != '')) {
 			$from_date = $_GET['from_date'];
 			$to_date = $_GET['to_date'];
 			$sql = "SELECT * FROM track_page WHERE visit_date>='$from_date' && visit_date<='$to_date'  ORDER BY id ASC";
-			if(isset($_GET['include_ref']) && $_GET['include_ref']=='true'){
-				
-			}
 		} elseif (isset($_GET['date'])) {
 			$date = $_GET['date'];
 			$sql = "SELECT * FROM track_page WHERE visit_date='$date' ORDER BY id DESC";
@@ -71,7 +74,8 @@ if(isset($_GET['submit'])){
 			'kaa',
 			'ema',
 			'msg',
-			'fac'
+			'fac',
+			'kaa-ad'
 		);
 		$ref = array();
 		foreach ($all_ref as $key => $value) {
@@ -94,6 +98,7 @@ if(isset($_GET['submit'])){
 				<td><?php echo $row['ip']; ?></td>
 				<td><?php echo $row['reference']; ?></td>
 				<td><?php echo $row['views']; ?></td>
+				<td><?php echo $row['page']; ?></td>
 			</tr>
 <?php
 		$i = $i+1;
@@ -114,6 +119,35 @@ if(isset($_GET['submit'])){
 			echo "Total " . $key . ": " . $value . "<br/>";
 		}
 	}
+	echo "<br/>";	
+
+	$page_list = "SELECT DISTINCT page FROM track_page";
+	$page_list_result = $conn->query($page_list);
+	$page_array = array();
+
+	while($page_list_row = $page_list_result->fetch_assoc()) {
+		if($page_list_row['page']) {
+			$page_array[] = $page_list_row['page'];	
+		}		
+	}
+	foreach ($page_array as $key => $value) {			
+		$total_page_views = 0;
+		$result = $conn->query($sql);
+		while($row_page = $result->fetch_assoc()) {
+			if($row_page['page']==$value) {
+				$total_page_views = $total_page_views + $row_page['views'];
+			}
+		}
+		echo "<b><i>".$value.":</i> ".$total_page_views."</b><br/>";
+	}
+	
+?>
+</div>
+<div style="clear:both;"></div>
+<br/><br/>
+<div class="span60 float-left">
+<?php
+	
 }
 ?>
 </div>
