@@ -158,7 +158,7 @@
 <!-- including js files -->
 @include('templates.footer')
 
-<script src="assets/js/track.js" type="text/javascript"></script>
+<script src="public/assets/js/track.js" type="text/javascript"></script>
 <script type="text/javascript">
 
   $(document).ready(function(){
