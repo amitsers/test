@@ -67,11 +67,18 @@ class TrackController extends Controller
             $ip = $_SERVER['REMOTE_ADDR'];
         }
 
-        DB::table('track_phones')->insertGetId([
-            'mobile' => $request->mobile_no,
-            'ip' => $ip
-        ]);
-        return 'done';
+        $get_phone = DB::table('track_phones')
+                ->where('mobile', $request->mobile_no)
+                ->get();
+        if(empty($get_phone)) {
+            DB::table('track_phones')->insertGetId([
+                'mobile' => $request->mobile_no,
+                'ip' => $ip
+            ]);
+            return 'done';
+        }
+        return 'exist';        
+        
     }
 
     public function trackPageReference(Request $request) {

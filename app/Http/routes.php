@@ -37,6 +37,17 @@ Route::get('/admin/login', 'AdminController@doLogin');
 Route::get('/admin/users', 'AdminController@index');
 Route::get('/admin/select-unselect', 'AdminController@selectUnselect');
 
+Route::get('/the-viral-voice-online-audition-details', 'AllAuditionController@viewTheViralVoice');
+Route::get('/sing-dil-se-audition', 'AllAuditionController@viewSingDilSe');
+Route::get('/indian-idol-audition', 'AllAuditionController@viewIndianIdol');
+Route::get('/indian-idol-junior-audition', 'AllAuditionController@viewIndianIdolJunior');
+Route::get('/sa-re-ga-ma-pa-audition', 'AllAuditionController@viewSaReGaMaPa');
+Route::get('/The-Voice-India-Online-Audition-Details', 'AllAuditionController@viewTheVoiceIndia');
+Route::get('/magical-voice-of-india-audition', 'AllAuditionController@viewMagicalVoice');
+
+
+
+
 
 // Route::get('test', function(){
 //     return "<h1>" . Input::get("color") . "</h1>";

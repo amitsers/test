@@ -300,3 +300,58 @@ function validateMobile() {
   }
   return true;
 }
+
+// for all pages
+var $height_w   = jQuery(window).height();
+function saveContact() {
+  if(!$('#mobileNo').val()) {
+    $('.mobileError').html('Please enter your mobile number');
+    return false;
+  }
+  if($('#mobileNo').val().length != 10){
+    $('.mobileError').html('Please enter a valid number');
+    return false;
+  }
+  $.ajax({
+    url: 'track-phone',
+    type: 'POST',
+    data: {
+      mobile_no: $('#mobileNo').val(),
+      _token: $('#_tokenPhone').val()
+    },
+    success: function(res) {
+      $('.mobileError').html('Thanks we will contact you soon');
+    }
+  });
+  
+  return false;
+}
+
+
+jQuery('.noo-countdown').css('height',$height_w+'px');
+jQuery(window).resize(function(){
+      var $height_w = jQuery(window).height();
+      jQuery('.noo-countdown').css('height',$height_w+'px');
+});
+
+jQuery(function () {
+  track();
+  $('body').on('click', '.register-now', function() {
+  $("html, body").animate({
+      scrollTop: $('.come-to-footer').outerHeight()
+  }, 800);
+  return false;
+});
+
+      jQuery('.full-background li:first-child').show();
+      var myVar = '';
+      clearInterval(myVar);
+      myVar = setInterval(function(){
+          jQuery('.full-background li:first-child').fadeOut(1200).next('li').fadeIn(1200).end().appendTo('.full-background');
+      },3500);
+    
+                        
+    austDay = new Date(2016, 5 - 1,  31);
+    // jQuery('#defaultCountdown').countdown({until: austDay});
+    jQuery('#year').text(austDay.getFullYear());
+  });

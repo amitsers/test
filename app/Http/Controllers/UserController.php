@@ -355,7 +355,7 @@ class UserController extends Controller
 
     public function test() {
 
-
+        return view('test');
 
         // $datatopost = array (
         //     'purpose' => 'One - to test email and name',

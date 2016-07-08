@@ -1,4 +1,4 @@
-var $height_w   = jQuery(window).height();
+          var $height_w   = jQuery(window).height();
           function saveContact() {
             if(!$('#mobileNo').val()) {
               $('.mobileError').html('Please enter your mobile number');
