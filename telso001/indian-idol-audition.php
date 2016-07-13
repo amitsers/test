@@ -170,6 +170,10 @@
             </div>
           </div>
         </div>
+
+        <?php include_once "google_ad.php"; ?>
+
+        
       </div>
 
       <br/><br/>
