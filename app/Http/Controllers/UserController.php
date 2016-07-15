@@ -20,7 +20,6 @@ use App\UploadDetail;
 use App\Transaction;
 use App\TrackPhone;
 use Log;
-use Illuminate\Support\Facades\Mail;
 // use \Auth;
 
 class UserController extends Controller
@@ -47,7 +46,8 @@ class UserController extends Controller
      * It will only works on AJAX call.
      */
     public function register(Request $request) {
-
+        // return $request->all();
+        // exit(0);
         $validator = $this->auth->validator($request->all());
 
         if ($validator->fails()) {
@@ -62,6 +62,7 @@ class UserController extends Controller
             DB::table('users')->where('id', $id)
                 ->update([
                     'username' => $username.'.'.$id,
+                    'mobile' => $request->mobile,
                     'allow_payment' => 1
             ]);
 
@@ -112,12 +113,12 @@ class UserController extends Controller
             //     ->subject($subject);
             // });
 
-            Mail::send('emails.thank',
-            array(), function($message)
-            {
-                $message->from("admin@onlineaudition.xyz");
-                $message->to("amitsinha559@gmail.com", "ADMIN_NAME")->subject('New site request');
-            });
+            // Mail::send('emails.thank',
+            // array(), function($message)
+            // {
+            //     $message->from("admin@onlineaudition.xyz");
+            //     $message->to("amitsinha559@gmail.com", "ADMIN_NAME")->subject('New site request');
+            // });
 
 
 
@@ -351,64 +352,5 @@ class UserController extends Controller
 
     public function updateProfileField(Request $request) {
         return $request->all();
-    }
-
-    public function test() {
-
-        return view('test');
-
-        // $datatopost = array (
-        //     'purpose' => 'One - to test email and name',
-        //     'amount' => 9
-        // );
-
-        // $request = curl_init('https://www.instamojo.com/api/1.1/payment-requests/39ad214e584241a98b67aa0c7ef2e5e2');
-        // curl_setopt($request, CURLOPT_HTTPHEADER, array(
-        //     'X-Api-Key: ' . $this->config->getImojoConfig()['api_key'],
-        //     'X-Auth-Token: ' . $this->config->getImojoConfig()['auth_token']
-        // ));
-
-        // // curl_setopt ($request, CURLOPT_POST, true);
-        // curl_setopt ($request, CURLOPT_POSTFIELDS, $datatopost);
-        // curl_setopt ($request, CURLOPT_RETURNTRANSFER, true);
-
-
-        // $result = curl_exec($request);
-        // print($result);
-        
-        // $this->config->getImojoConfig()['api_key'];
-        // $api = new Instamojo($this->config->getImojoConfig()['api_key'], 
-        //     $this->config->getImojoConfig()['auth_token']);
-            // $result = file_get_contents('http://requestb.in/qotpl0qo');
-            // echo $result;
-        // $response = $api->paymentDetail('MOJO6125005J42405869');
-        // echo "<pre>";
-        // print_r($response);
-        // echo "</pre>";
-
-        // $response = $api->paymentRequestCreate(array(
-        //         "purpose" => "Online Audition 28/1",
-        //         "amount" => "9",
-        //         "redirect_url" => "http://kaakai.in",
-        //         "webhook" => 'http://requestb.in/qotpl0qo',
-        //         "allow_repeated_payments" => true,
-        //         ));
-        //     print_r($response);
-
-        // try {
-        //     $response = $api->paymentRequestCreate(array(
-        //         "purpose" => "Online Aud",
-        //         "amount" => "1",
-        //         "send_email" => true,
-        //         "email" => "amitsinha559@gmail.com",
-        //         "redirect_url" => "http://kaakai.in"
-        //         ));
-        //     print_r($response);
-        // }
-        // catch (\Exception $e) {
-        //     print('Error: ' . $e->getMessage());
-        // }
-
-        return 'eeeeee';
     }
 }

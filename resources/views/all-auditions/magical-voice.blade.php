@@ -18,7 +18,7 @@
 	<meta property="article:tag" content="Singing Audition"/>
 
     <meta name="keywords" content="Singing Audition, Online Audition, Magical Voice of India Audition"/>
-    <meta name="description" content="The Voice India Audition"/>
+    <meta name="description" content="Magical Voice of India Audition"/>
     <meta id="_description3" itemprop="description" content="Magical Voice of India Audition">
     <meta id="_url4" itemprop="url" content="http://www.onlineaudition.xyz/">
     <meta itemprop="name" content="Magical Voice of India Audition | www.onlineaudition.xyz">

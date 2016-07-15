@@ -6,3 +6,4 @@ Homestead.json
 /public/uploads
 /app/Http/Controllers/ConfigController.php
 /telso001/save-contact.php
+/config/database.php
