@@ -1,3 +1,6 @@
+@include('templates.login-modal')
+
+<a name="contact-us"></a>
 <footer itemscope itemtype="http://schema.org/Event" itemref="_description3 _url4" class="colophon site-info come-to-footer">
   <div class="colophon wigetized">
     <div class="background-footer"></div>
@@ -83,11 +86,11 @@
             <li class="info-phone">
               <span class="fa fa-whatsapp infomation-left"></span> OR
               <span class="fa fa-phone infomation-left"></span>
-              <span>+91 898 147 4462</span>
+              <span>{{ $admin['mobile'] }}</span>
             </li>
             <li class="info-mail">
               <span class="fa fa-envelope-o infomation-left"></span>
-              <span><a href="mailto:query@onlineaudition.xyz">query@onlineaudition.xyz</a></span>
+              <span><a href="mailto:query@onlineaudition.xyz">{{ $admin['email_one'] }}</a></span>
             </li>
           </ul>
         </div>

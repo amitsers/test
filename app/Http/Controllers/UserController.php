@@ -124,7 +124,7 @@ class UserController extends Controller
             // 'track_link' => $user_uploads->file_destination . '/' . $user_uploads->file_name,
             return view('activity', $data);
         } else {
-            return 'Please login';
+            return Redirect::intended('/?err=LGN');
         }
         
     }

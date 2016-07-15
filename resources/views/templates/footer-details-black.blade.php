@@ -8,7 +8,7 @@
                   <h4 class="widget-title">Other <span>Details</span></h4>
                   <div class="textwidget">
                     <p>
-                      Please feel free to reach us for any type of queries. Like our facebook page for more updates.
+                      We'll annouce the registration dates soon. In the mean time you can give your number to us or just send an email to us, our team will inform you the dates once decided. Like our facebook page for more updates.
                     </p>
                     <p>
                       
@@ -18,7 +18,7 @@
               </div>  
               <div class="col-md-4 col-sm-6">
                 <div class="widget tribe-events-adv-list-widget">
-                  <h4 class="widget-title">Important <span>Dates</span></h4>
+                  <!-- <h4 class="widget-title">Important <span>Dates</span></h4>
                   <div class="tribe-mini-calendar-event">
                     <div class="list-date">
                       <span class="list-dayname">--</span>
@@ -47,17 +47,17 @@
                       </h2>
                       <div class="duration">
                         <span class="date-start dtstart">@if(isset($season_end_date)) {{{$season_end_date}}} @endif</span>
-                        <!-- -
-                        <span class="date-end dtend">October 31-10:30 pm</span> -->
+                        
+                        <span class="date-end dtend">October 31-10:30 pm</span> 
                       </div>
                     </div>  
-                  </div>
+                  </div> -->
                 </div>
               </div>
               <a name="contact-us"></a>
               <div class="col-md-4 col-sm-6">
                 <div class="widget mailchimp-widget">
-                  <h4 class="widget-title">Number <span>Please</span></h4>
+                  <h4 class="widget-title">Add <span>Reminder</span></h4>
                   <form class="mc-subscribe-form" onSubmit="return saveContact()">
                     <label>Please mention your mobile number here. Our team will contact you. We'll not spam your inbox.</label>
                     <div class="input-mail">
@@ -75,19 +75,19 @@
               <div class="widget widget_noo_infomation">
                 <ul class="noo-infomation">
                   <li>
-                    <a href="http://fb.com">
+                    <a href="https://www.facebook.com/onlineaudition.xyz">
                       <span class="fa fa-facebook infomation-left"></span>
-                      <address>Follow us on facebook</address>
+                      <address>Visit our facebook page</address>
                     </a>
                   </li>
                   <li class="info-phone">
                     <span class="fa fa-whatsapp infomation-left"></span> OR
                     <span class="fa fa-phone infomation-left"></span>
-                    <span>+91 123 456 789</span>
+                    <span>{{ $admin['mobile'] }}</span>
                   </li>
                   <li class="info-mail">
                     <span class="fa fa-envelope-o infomation-left"></span>
-                    <span><a href="mailto:query@onlineaudition.xyz">query@onlineaudition.xyz</a></span>
+                    <span><a href="mailto:query@onlineaudition.xyz">{{ $admin['email_one'] }}</a></span>
                   </li>
                 </ul>
               </div>

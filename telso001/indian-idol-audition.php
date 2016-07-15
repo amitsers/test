@@ -171,8 +171,7 @@
           </div>
         </div>
 
-        <?php include_once "google_ad.php"; ?>
-
+        <?php include_once 'ad.php'; ?>
         
       </div>
 

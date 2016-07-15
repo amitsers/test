@@ -1,53 +1,8 @@
 @include('templates.header')
 
 <body>
-<div class="topbar animated fadeInLeftBig"></div>
-
-<!-- Header Starts -->
-<div class="navbar-wrapper">
-      <div class="container">
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-nav">
-          <div class="container">
-            <div class="navbar-header">
-              <!-- Logo Starts -->
-              <!-- <a class="navbar-brand" href="#home"><img src="images/logo.png" alt="logo"></a> -->
-              <!-- #Logo Ends -->
-
-
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-
-            </div>
-
-            <!-- Nav Starts -->
-            <div class="navbar-collapse  collapse">
-              <ul class="nav navbar-nav navbar-right">
-                 <li><a href="home">Home</a></li>
-                 <li >
-                 <a href="contact">Contact</a></li>
-                 <li class="dropdown">
-                  <a class="dropdown-toggle active" data-toggle="dropdown">{{{$name}}}<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a class="active" href="activity">Activity</a></li>
-                    <li class="divider"></li>
-                    <li><a href="logout">Logout</a></li>
-                  </ul>
-                 </li>
-              </ul>
-            </div>
-            <!-- #Nav Ends -->
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-<!-- #Header Starts -->
+  
+  @include('templates.header-menu-after-login')
 
 
 <div id="activity" class="spacer">
@@ -71,9 +26,9 @@
               }
             ?>
           </span>
-          <input type="file" class="form-control" id="track" name="track">
+          <input type="file" class="form-control browse-btn" id="track" name="track">
           <input type="hidden" name='_token' value="<?php echo csrf_token(); ?>">
-          <input type="submit" class="btn btn-primary" value="Pay & Upload" name="upload">
+          <input type="submit" class="btn btn-primary pay-upload-btn" value="Pay & Upload" name="upload">
         </div>
       </form>
     </div>

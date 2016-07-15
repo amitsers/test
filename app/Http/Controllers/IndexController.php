@@ -23,7 +23,7 @@ class IndexController extends Controller
 
     public function index()
     {
-        $data = $this->common->getSeasonAndAdminDetails();        
+        $data = $this->common->getSeasonAndAdminDetails();
     	if (Auth::check()) {
             $data['user_name'] = Auth::user()->name;
         }

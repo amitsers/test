@@ -52,7 +52,7 @@
     </div>
         <!--end preloader-->
     <div class="site">
-      <!-- @include('all-auditions.inc.header') -->
+      @include('all-auditions.inc.header')
 
       <div itemscope itemtype="http://schema.org/Event" class="row parallax row-fluid home-upcoming-event">
         <div class="overlay_parallax"></div>

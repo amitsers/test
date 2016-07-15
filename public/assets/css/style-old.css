@@ -31,7 +31,7 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 
 .topbar {background:url(../images/lines.png);	height:5px;position: fixed;top: 0;width: 100%;z-index: 1000;}
 .navbar-nav > li > a{font-size: 1em;line-height: 3.6em;}
-.navbar-fixed-top{top: 5px;}
+/*.navbar-fixed-top{top: 5px;}*/
 .navbar-inverse{background: #111;}
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{background: none;color: #21abca;}
 
@@ -257,4 +257,16 @@ td.track-list {
 
 .register-loader {
 	width: 20px;
+}
+
+#activity {
+    margin-top: 40px;
+}
+
+.btn.btn-primary.pay-upload-btn {
+    margin-top: 6px;
+}
+
+.browse-btn {
+    height: 42px;
 }

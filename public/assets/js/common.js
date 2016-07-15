@@ -64,6 +64,7 @@ function doRegister() {
         age: $('#age').val(),
         password: $('#password').val(),
         password_confirmation: $('#confirmPassword').val(),
+        mobile: $('#mobile').val(),
         _token: $('#_token').val()
       },
       success: function(res) {        

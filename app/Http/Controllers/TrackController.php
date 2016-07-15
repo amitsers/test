@@ -39,7 +39,7 @@ class TrackController extends Controller
         }
 
         $is_same = DB::table('tracks')
-                    ->where('date', date("Y-m-d H:i:s"))
+                    ->where('date', date("Y-m-d"))
                     ->where('ip', $ip)
                     ->where('page', $request->page)
                     ->where('campaign_id', $request->cid)
@@ -47,7 +47,7 @@ class TrackController extends Controller
         echo $is_same;
         if(!$is_same) {
             DB::table('tracks')->insert([
-                'date' => date("Y-m-d H:i:s"),
+                'date' => date("Y-m-d"),
                 'ip' => $ip,
                 'page' => $request->page,
                 'campaign_id' => $request->cid,

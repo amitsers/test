@@ -23,6 +23,10 @@ class CommonController
         return $res;
     }
 
+    public function getSiteName() {
+        return 'http://www.onlineaudition.xyz?err=login';
+    }
+
     public function validateUserName($username) {
     	if (isset($username) && (DB::table('users')->where('username', $username)->exists())) {
     		return true;

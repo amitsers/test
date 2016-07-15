@@ -16,4 +16,5 @@
 <script type="text/javascript" src="public/assets/js/jquery.countdown.min.js"></script> 
 <script type="text/javascript" src="public/assets/js/jquery.parallax.js"></script>
 <script type="text/javascript" src="public/assets/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="public/assets/js/track.js"></script>
 <script type="text/javascript" src="public/assets/js/common.js"></script>
